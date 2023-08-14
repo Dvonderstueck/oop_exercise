@@ -69,16 +69,23 @@ class add_question:
 class Teacher(info):
     def __init__(self, name, email, address):
         super().__init__(name, email, address)
-        self.taught_disciplines = [] # Eine Liste der unterrichteten Disziplinen.
-        self.exam_questions = []  # Eine Liste von Prüfungsfragen
+        self.taught_disciplines = []  # A list of taught disciplines.
+        self.exam_questions = []  # A list of exam questions
 
     def teach_discipline(self, discipline):
-        self.taught_disciplines.append(discipline) # Füge die unterrichtete Disziplin hinzu.
+        self.taught_disciplines.append(discipline)
 
+    def question(self, discipline, question_text):
+        if discipline in self.taught_disciplines:
+            self.exam_questions.append((discipline, question_text))
+        else:
+            print(f"{self.name} doesn't teach {discipline}.")
 
-    def question(self, question_text):
-        self.exam_questions.append(question_text) # Füge eine Prüfungsfrage hinzu.
-
+    def list_exam_questions(self):
+        exam_questions_info = ""
+        for discipline, question_text in self.exam_questions:
+            exam_questions_info += f"Discipline: {discipline}\nQuestion: {question_text}\n\n"
+        return exam_questions_info
 
 class Director(Teacher):
   assigned_schools = {} # Ein Dictionary zur Zuordnung von Schulen zu Schulleitern.
@@ -127,7 +134,9 @@ Student1.assign_class("class 2")
 Teacher1.teach_discipline(math_discipline.name,)
 Teacher1.teach_discipline(physics_discipline.name)
 
-Teacher1.question("what is 1+1")
+Teacher1.question(math_discipline.name, "What is 2+3?")
+Teacher1.question(math_discipline.name, "What is 5+5?")
+Teacher1.question(math_discipline.name, "What is 100+3?")
 Student1.add_grade(math_discipline.name, 85)
 
 class1 = classes("class 1")
@@ -140,7 +149,7 @@ class_info = [class1, class2]
 class1.setup_and_print()
 class2.setup_and_print()
 
-
+print(Teacher1.exam_questions)
 
 #for class_obj in class_info:
     #print(class_obj.setup_and_print())
@@ -149,7 +158,6 @@ class2.setup_and_print()
 #print("Disciplines in class1:", class1.list_disciplines())
 
 #print(Student1.get_grade())
-
 
 
 
