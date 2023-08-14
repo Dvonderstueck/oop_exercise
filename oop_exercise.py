@@ -5,21 +5,55 @@ class info:
          self.email = email
          self.address = address
 
+    def get_full_info(self):
+     return f"Name: {self.name}\nEmail: {self.email}\nAddress: {self.address}"
+
+
+class classes:
+    def __init__(self, name):
+        self.name = name
+        self.disciplines = []
+        
+
+    def add_discipline(self, discipline):
+        self.disciplines.append(discipline)
+
+    def list_disciplines(self):
+        return self.disciplines
+    
+    def setup_and_print(self, *disciplines):
+        for discipline in disciplines:
+            self.add_discipline(discipline)
+        disciplines_info = ", ".join(self.list_disciplines())
+        return f"Class: {self.name}\nDisciplines: {disciplines_info}\n"
+      
 
 
 
 class Student(info):
+
     def __init__(self, name, email, address):
         super().__init__(name, email, address)
-        
+        self.student_grades = {}
+        self.assigned_classes = []
 
-        self.student_grades = {}  # Ein leeres Dictionary zur Speicherung der Noten.
-
+    
     def add_grade(self, discipline, grade):
-        self.student_grades[discipline] = grade # Füge die Note zur entsprechenden Disziplin hinzu.
+        self.student_grades[discipline] = grade
 
-    def get_full_info(self):
-     return f"Name: {self.name}\nEmail: {self.email}\nAddress: {self.address}"
+    def assign_class(self, class_name):
+        if class_name not in self.assigned_classes:
+            self.assigned_classes.append(class_name)
+        else:
+            print(f"{self.name} is already assigned to {class_name}.")
+
+
+
+    
+    def get_grade(self):
+     return f"Teacher: {Teacher1.name}\nGrade: {self.student_grades}"
+    
+     
     
 
 class Discipline:
@@ -44,10 +78,6 @@ class Teacher(info):
 
     def question(self, question_text):
         self.exam_questions.append(question_text) # Füge eine Prüfungsfrage hinzu.
-
-
-    def get_full_info(self):
-        return f"Name: {self.name}\nEmail: {self.email}\nAddress: {self.address}"
 
 
 class Director(Teacher):
@@ -78,8 +108,6 @@ class Secretary(info):
     def __init__(self, name, email, address):
         super().__init__(name, email, address)
 
-    def get_full_info(self):
-     return f"Name: {self.name}\nEmail: {self.email}\nAddress: {self.address}"
     
 math_discipline = Discipline("Mathematics")
 physics_discipline = Discipline("Physics")
@@ -93,6 +121,8 @@ Director2 = Director("Smith", "Smith@school.com", "Smithstreet 6 köln", "Evt")
 
 Director1.assign_school("Europaschule köln")
 Director2.assign_school("Evt")
+Student1.assign_class("class 1")
+Student1.assign_class("class 2")
 
 Teacher1.teach_discipline(math_discipline.name,)
 Teacher1.teach_discipline(physics_discipline.name)
@@ -100,7 +130,28 @@ Teacher1.teach_discipline(physics_discipline.name)
 Teacher1.question("what is 1+1")
 Student1.add_grade(math_discipline.name, 85)
 
-##print("Student1 has the grade: ",Student1.student_grades, "by the Teacher", Teacher1.name)
+class1 = classes("class 1")
+class2 = classes("class 2")  
+class1.add_discipline(math_discipline.name)
+class1.add_discipline(physics_discipline.name)
+class2.add_discipline(english_discipline.name) 
+class_info = [class1, class2]
+
+class1.setup_and_print()
+class2.setup_and_print()
+
+
+
+#for class_obj in class_info:
+    #print(class_obj.setup_and_print())
+
+#print(Student1.get_full_info())
+#print("Disciplines in class1:", class1.list_disciplines())
+
+#print(Student1.get_grade())
+
+
+
 
 
 
