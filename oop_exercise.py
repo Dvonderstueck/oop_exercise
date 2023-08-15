@@ -46,8 +46,11 @@ class Student(info):
             self.assigned_classes.append(class_name)
         else:
             print(f"{self.name} is already assigned to {class_name}.")
+    
+    def get_input(question):
+        return input(question)
 
-
+     
 
     
     def get_grade(self):
@@ -55,13 +58,13 @@ class Student(info):
     
      
     
-
+#saves disciplines
 class Discipline:
     def __init__(self, name):
         self.name = name
 
 
-class add_question:
+class add_question: #maybe change it to a method in teacher??
     def __init__(self, question):
         self.exam_questions.append(question)
 
@@ -71,6 +74,7 @@ class Teacher(info):
         super().__init__(name, email, address)
         self.taught_disciplines = []  # A list of taught disciplines.
         self.exam_questions = []  # A list of exam questions
+        self.Teacher1_math_exam_answer = ["5", "10", "103"]
 
     def teach_discipline(self, discipline):
         self.taught_disciplines.append(discipline)
@@ -149,7 +153,20 @@ class_info = [class1, class2]
 class1.setup_and_print()
 class2.setup_and_print()
 
-print(Teacher1.exam_questions)
+# Use map() to get user inputs for teacher questions
+teacher_questions = Teacher1.exam_questions
+#user_inputs = list(map(lambda q: Student.get_input(q[1]), teacher_questions))
+
+#for i, (question_info, user_answer) in enumerate(zip(teacher_questions, user_inputs)):
+   # correct_answer = question_info
+    #if user_answer == Teacher1.Teacher1_math_exam_answer[i]:  # Compare with the correct answer from Teacher1_math_exam_answer
+      #  print("Correct!")
+   # else:
+        #print("Incorrect. The correct answer is:", Teacher1.Teacher1_math_exam_answer[i])
+
+
+#print(Teacher1.exam_questions)
+
 
 #for class_obj in class_info:
     #print(class_obj.setup_and_print())
