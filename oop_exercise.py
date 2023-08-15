@@ -73,23 +73,12 @@ class Teacher(info):
     def __init__(self, name, email, address):
         super().__init__(name, email, address)
         self.taught_disciplines = []  # A list of taught disciplines.
-        self.exam_questions = []  # A list of exam questions
-        self.Teacher1_math_exam_answer = ["5", "10", "103"]
+          # A list of exam questions
+       
 
     def teach_discipline(self, discipline):
         self.taught_disciplines.append(discipline)
 
-    def question(self, discipline, question_text):
-        if discipline in self.taught_disciplines:
-            self.exam_questions.append((discipline, question_text))
-        else:
-            print(f"{self.name} doesn't teach {discipline}.")
-
-    def list_exam_questions(self):
-        exam_questions_info = ""
-        for discipline, question_text in self.exam_questions:
-            exam_questions_info += f"Discipline: {discipline}\nQuestion: {question_text}\n\n"
-        return exam_questions_info
 
 class Director(Teacher):
   assigned_schools = {} # Ein Dictionary zur Zuordnung von Schulen zu Schulleitern.
@@ -119,6 +108,24 @@ class Secretary(info):
     def __init__(self, name, email, address):
         super().__init__(name, email, address)
 
+
+class exam_question(): 
+    def __init__(self):
+        self.exam_questions = []
+        self.exam2_math_exam_answer = ["348", "568", "1005"]
+        self.exam1_math_exam_answer = ["5", "10", "103"]
+        
+
+    def ask_question(self, discipline, question_text):
+        self.exam_questions.append((discipline, question_text))
+
+    def list_exam_questions(self):
+        exam_questions_info = ""
+        for discipline, question_text in self.exam_questions:
+            exam_questions_info += f"Discipline: {discipline}\nQuestion: {question_text}\n\n"
+        return exam_questions_info
+
+
     
 math_discipline = Discipline("Mathematics")
 physics_discipline = Discipline("Physics")
@@ -130,6 +137,7 @@ Secretary1 = Secretary("Schneider", "schneider@school.com", "japanroad 32 köln"
 Director1 = Director("Schmidt", "Schmidt@school.com", "googlestreet 2 köln", "Europaschule köln")
 Director2 = Director("Smith", "Smith@school.com", "Smithstreet 6 köln", "Evt")
 
+
 Director1.assign_school("Europaschule köln")
 Director2.assign_school("Evt")
 Student1.assign_class("class 1")
@@ -138,9 +146,18 @@ Student1.assign_class("class 2")
 Teacher1.teach_discipline(math_discipline.name,)
 Teacher1.teach_discipline(physics_discipline.name)
 
-Teacher1.question(math_discipline.name, "What is 2+3?")
-Teacher1.question(math_discipline.name, "What is 5+5?")
-Teacher1.question(math_discipline.name, "What is 100+3?")
+
+
+exam1 = exam_question()  
+exam1.ask_question(math_discipline.name, "What is 2+3?")
+exam1.ask_question(math_discipline.name, "What is 5+5?")
+exam1.ask_question(math_discipline.name, "What is 100+3?")
+
+exam2 = exam_question()  
+exam2.ask_question(math_discipline.name, "What is 345+3?")
+exam2.ask_question(math_discipline.name, "What is 563+5?")
+exam2.ask_question(math_discipline.name, "What is 1002+3?")
+
 Student1.add_grade(math_discipline.name, 85)
 
 class1 = classes("class 1")
@@ -154,18 +171,18 @@ class1.setup_and_print()
 class2.setup_and_print()
 
 # Use map() to get user inputs for teacher questions
-teacher_questions = Teacher1.exam_questions
-#user_inputs = list(map(lambda q: Student.get_input(q[1]), teacher_questions))
+teacher_questions = exam1.exam_questions
+user_inputs = list(map(lambda q: Student.get_input(q[1]), teacher_questions))
 
-#for i, (question_info, user_answer) in enumerate(zip(teacher_questions, user_inputs)):
-   # correct_answer = question_info
-    #if user_answer == Teacher1.Teacher1_math_exam_answer[i]:  # Compare with the correct answer from Teacher1_math_exam_answer
-      #  print("Correct!")
-   # else:
-        #print("Incorrect. The correct answer is:", Teacher1.Teacher1_math_exam_answer[i])
+for i, (question_info, user_answer) in enumerate(zip(teacher_questions, user_inputs)):
+    correct_answer = question_info
+    if user_answer == exam1.exam1_math_exam_answer[i]:  # Compare with the correct answer from Teacher1_math_exam_answer
+       print("Correct!")
+    else:
+        print("Incorrect. The correct answer is:", exam1.exam1_math_exam_answer[i])
 
 
-#print(Teacher1.exam_questions)
+
 
 
 #for class_obj in class_info:
