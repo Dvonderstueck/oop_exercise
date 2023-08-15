@@ -172,14 +172,14 @@ class2.setup_and_print()
 
 # Use map() to get user inputs for teacher questions
 teacher_questions = exam1.exam_questions
-user_inputs = list(map(lambda q: Student.get_input(q[1]), teacher_questions))
+user_inputs = list(map(lambda q: (q[0], q[1], Student.get_input(f"{q[0]} - {q[1]}: ")), teacher_questions))
 
-for i, (question_info, user_answer) in enumerate(zip(teacher_questions, user_inputs)):
-    correct_answer = question_info
-    if user_answer == exam1.exam1_math_exam_answer[i]:  # Compare with the correct answer from Teacher1_math_exam_answer
-       print("Correct!")
+for i, (discipline, question_info, user_answer) in enumerate(user_inputs):
+    correct_answer = exam1.exam1_math_exam_answer[i]
+    if user_answer == correct_answer:
+        print("Correct!")
     else:
-        print("Incorrect. The correct answer is:", exam1.exam1_math_exam_answer[i])
+        print("Incorrect. The correct answer is:", correct_answer)
 
 
 
