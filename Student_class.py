@@ -18,9 +18,29 @@ class Student(info):
     
     def get_input(question):
         return input(question)
+    
+    def save_points_to_file(self, discipline):
+        file_path = f"{self.name}_{discipline}_saved_points.txt"
+        
+        # Read existing points from the file (if it exists)
+        
+        with open(file_path, 'r') as file:
+                existing_line = file.readline()
+                existing_points = int(existing_line.split(': ')[-1].strip())
+        
+            
+
+        new_points = self.student_grades.get(discipline, 0)
+        total_points = existing_points + new_points
+        
+        # Save the updated points to the file
+        with open(file_path, 'w') as file:
+            file.write(f"Saved points for {discipline}: {total_points}\n")
+        
+        print(f"Total points for {discipline} have been updated and saved to {file_path}")
 
      
 
     
-    #def get_grade(self):
-   #  return f"Teacher: {Teacher1.name}\nGrade: {self.student_grades}"
+   # def get_grade(self):
+   # return f"Teacher: {Teacher1.name}\nGrade: {self.student_grades}"

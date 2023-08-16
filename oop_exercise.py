@@ -6,6 +6,7 @@ from Teacher_class import Teacher
 from Director_class import Director
 from Secretary_class import Secretary
 from Exam_question_class import exam_question
+from School_class import school
 
     
 math_discipline = Discipline("Mathematics")
@@ -56,18 +57,31 @@ class2.setup_and_print()
 teacher_questions = exam1.exam_questions
 user_inputs = list(map(lambda q: (q[0], q[1], Student.get_input(f"{q[0]} - {q[1]}: ")), teacher_questions))  # Create a list of tuples containing discipline, question text, and user answer for each question.
 
+total_points = 0
+
 for i, (discipline, question_info, user_answer) in enumerate(user_inputs):
     correct_answer = exam1.exam1_math_exam_answer[i]
     if user_answer == correct_answer:
-        print("Correct!")
+          print("Correct!")
+          total_points += 1
+          Student1.add_grade(discipline, total_points)
     else:
-        print("Incorrect. The correct answer is:", correct_answer)
+          print("Incorrect. The correct answer is:", correct_answer)
+
+print(f"Total points earned: {total_points}")
+
+saved_points = Student1.student_grades.get(math_discipline.name, 0)
+
+ # Get saved points for the math discipline
+print(f"Saved points for {math_discipline.name}: {saved_points}")
+
+# Save the saved points to a text document for Student1 and math discipline
+Student1.save_points_to_file(math_discipline.name)
 
 
 
-
-#for class_obj in class_info:
-    #print(class_obj.setup_and_print())
+for class_obj in class_info:
+    print(class_obj.setup_and_print())
 
 #print(Student1.get_full_info())
 #print("Disciplines in class1:", class1.list_disciplines())
