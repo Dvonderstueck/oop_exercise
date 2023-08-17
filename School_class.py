@@ -6,12 +6,15 @@ from Teacher_class import Teacher
 from Director_class import Director
 from Secretary_class import Secretary
 from Exam_question_class import exam_question
+from Adress_class import adress
 
 
 
+address_instance = adress()
 class School:
-    def __init__(self, name):
+    def __init__(self, name,):
         self.name = name
+        self.adress = address_instance
         self.students = []
         self.teachers = []
 
@@ -22,15 +25,19 @@ class School:
     def add_teacher(self, teacher):
         self.teachers.append(teacher)
 
+    def get_full_info(self):
+     return f"Name: {self.name}\nEmail: {self.email}\nAddress: {self.adress}"
+
     
 
 
 school = School("Europa Schule köln")
 
-math_teacher = Teacher("Lukas", "max@example.com", "123 Main St")
 
-new_student1 = Student("Max", "max@example.com", "123 Main St")
-new_student2 = Student("john", "max@example.com", "123 Main St")
+math_teacher = Teacher("Lukas", "max@example.com", address_instance.generate_random_address())
+
+new_student1 = Student("Max", "max@example.com", address_instance.generate_random_address())
+new_student2 = Student("john", "max@example.com", address_instance.generate_random_address())
 
 school.add_teacher(math_teacher)
 
@@ -60,16 +67,17 @@ for teacher in selected_teachers:
     #print(student.name)
 
 
-for class_obj in class_info:
-    print(class_obj.setup_and_print())
-    print("Teachers:")
-    for teacher in class_obj.teachers:
-        print(teacher.name)
-    print("Students:")
-    for student in class_obj.students:
-        print(student.name)
-    print()
+# for class_obj in class_info:
+#     print(class_obj.setup_and_print())
+#     print("Teachers:")
+#     for teacher in class_obj.teachers:
+#         print(teacher.name)
+#     print("Students:")
+#     for student in class_obj.students:
+#         print(student.name)
+#     print()
 
+print(new_student2.get_full_info())
 
 #for teacher in school.teachers:
    # print(teacher.name)

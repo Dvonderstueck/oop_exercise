@@ -8,6 +8,7 @@ from Secretary_class import Secretary
 from Exam_question_class import exam_question
 from School_class import school
 
+
     
 math_discipline = Discipline("Mathematics")
 physics_discipline = Discipline("Physics")

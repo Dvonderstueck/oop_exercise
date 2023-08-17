@@ -7,6 +7,8 @@ class Student(info):
         self.assigned_classes = []
 
     
+
+    
     def add_grade(self, discipline, grade):
         self.student_grades[discipline] = grade
 
