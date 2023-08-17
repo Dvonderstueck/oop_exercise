@@ -43,15 +43,6 @@ exam2.ask_question(math_discipline.name, "What is 1002+3?")
 
 Student1.add_grade(math_discipline.name, 85)
 
-class1 = classes("class 1")
-class2 = classes("class 2")  
-class1.add_discipline(math_discipline.name)
-class1.add_discipline(physics_discipline.name)
-class2.add_discipline(english_discipline.name) 
-class_info = [class1, class2]
-
-class1.setup_and_print()
-class2.setup_and_print()
 
 # Use map() to get user inputs for teacher questions
 teacher_questions = exam1.exam_questions
@@ -80,8 +71,6 @@ Student1.save_points_to_file(math_discipline.name)
 
 
 
-for class_obj in class_info:
-    print(class_obj.setup_and_print())
 
 #print(Student1.get_full_info())
 #print("Disciplines in class1:", class1.list_disciplines())

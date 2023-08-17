@@ -1,7 +1,10 @@
+
 class classes:
     def __init__(self, name):
         self.name = name
         self.disciplines = []
+        self.students = []
+        self.teachers = []
         
 
     def add_discipline(self, discipline):
@@ -9,6 +12,12 @@ class classes:
 
     def list_disciplines(self):
         return self.disciplines
+    
+    def add_student(self, student):
+        self.students.append(student)
+
+    def add_teacher(self, teacher):
+        self.teachers.append(teacher)
     
     def setup_and_print(self, *disciplines):
         for discipline in disciplines:
