@@ -7,8 +7,6 @@ class Student(info):
         self.assigned_classes = []
 
     
-
-    
     def add_grade(self, discipline, grade):
         self.student_grades[discipline] = grade
 
@@ -18,30 +16,32 @@ class Student(info):
         else:
             print(f"{self.name} is already assigned to {class_name}.")
     
-    def get_input(question):
+    def get_input(self, question):  
         return input(question)
     
-    def save_points_to_file(self, discipline):
-        file_path = f"{self.name}_{discipline}_saved_points.txt"
+    def save_points_to_file(self, discipline, exam_name):
+        file_path = f"{self.name}_{discipline}_{exam_name}_saved_points.txt"
         
         # Read existing points from the file (if it exists)
-        
-        with open(file_path, 'r') as file:
+        existing_points = 0
+        try:
+            with open(file_path, 'r') as file:
                 existing_line = file.readline()
                 existing_points = int(existing_line.split(': ')[-1].strip())
+        except FileNotFoundError:
+            pass
         
-            
-
         new_points = self.student_grades.get(discipline, 0)
         total_points = existing_points + new_points
         
-        # Save the updated points to the file
-        with open(file_path, 'w') as file:
+       
+        with open(file_path, 'a') as file:  
             file.write(f"Saved points for {discipline}: {total_points}\n")
         
-        print(f"Total points for {discipline} have been updated and saved to {file_path}")
+        print(f"Total points for {discipline} in {exam_name} have been updated and saved to {file_path}")
 
      
+
 
     
    # def get_grade(self):

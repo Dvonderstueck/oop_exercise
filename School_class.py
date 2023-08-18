@@ -7,6 +7,7 @@ from Director_class import Director
 from Secretary_class import Secretary
 from Exam_question_class import exam_question
 from Adress_class import adress
+from Schhooluitils_class import SchoolUtils
 
 
 
@@ -38,6 +39,9 @@ math_teacher = Teacher("Lukas", "max@example.com", address_instance.generate_ran
 
 new_student1 = Student("Max", "max@example.com", address_instance.generate_random_address())
 new_student2 = Student("john", "max@example.com", address_instance.generate_random_address())
+director1 = Director("Schmidt", "Schmidt@school.com", address_instance.generate_random_address(), "Europaschule köln")
+
+
 
 school.add_teacher(math_teacher)
 
@@ -47,6 +51,9 @@ school.add_student(new_student2)
 math_discipline = Discipline("Mathematics")
 physics_discipline = Discipline("Physics")
 english_discipline = Discipline("English")
+
+math_teacher.teach_discipline(math_discipline.name,)
+math_teacher.teach_discipline(physics_discipline.name)
 
 class1 = classes("class 1")
 class2 = classes("class 2")  
@@ -67,17 +74,21 @@ for teacher in selected_teachers:
     #print(student.name)
 
 
-# for class_obj in class_info:
-#     print(class_obj.setup_and_print())
-#     print("Teachers:")
-#     for teacher in class_obj.teachers:
-#         print(teacher.name)
-#     print("Students:")
-#     for student in class_obj.students:
-#         print(student.name)
-#     print()
+    for class_obj in class_info:
+     print(class_obj.setup_and_print())
+     
+     print("Teachers:")
+     for teacher in class_obj.teachers:
+         print(teacher.name)
+     print("Students:")
+     for student in class_obj.students:
+         print(student.name)
+     print()
 
-print(new_student2.get_full_info())
+print(director1.get_full_info())
+
+
 
 #for teacher in school.teachers:
    # print(teacher.name)
+#SchoolUtils.teach(director1, "Management")

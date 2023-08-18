@@ -1,4 +1,4 @@
-import random
+
 class adress:
     def __init__(self):
         self.adress_list = []

@@ -3,10 +3,14 @@ class exam_question():
         self.exam_questions = []
         self.exam2_math_exam_answer = ["348", "568", "1005"]
         self.exam1_math_exam_answer = ["5", "10", "103"]
+        self.exam3_math_exam_answer = ["10", "20", "203"]
         
 
     def ask_question(self, discipline, question_text):
         self.exam_questions.append((discipline, question_text))
+
+    def get_correct_answer(self, index):
+        return self.exam1_math_exam_answer[index]
 
     def list_exam_questions(self):
         exam_questions_info = ""
