@@ -1,4 +1,4 @@
-from Schhooluitils_class import SchoolUtils
+from Schooluitils_class import SchoolUtils
 from info_class import info
 class Director(info):
   

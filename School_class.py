@@ -7,7 +7,7 @@ from Director_class import Director
 from Secretary_class import Secretary
 from Exam_question_class import exam_question
 from Adress_class import adress
-from Schhooluitils_class import SchoolUtils
+from Schooluitils_class import SchoolUtils
 
 
 

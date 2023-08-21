@@ -16,8 +16,15 @@ class Student(info):
         else:
             print(f"{self.name} is already assigned to {class_name}.")
     
-    def get_input(self, question):  
+    @staticmethod
+    def get_input(question):  
         return input(question)
+    
+    def get_final_grade(self, discipline_name):
+        return self.student_grades.get(discipline_name)  # Use student_grades here
+
+    def add_final_grade(self, discipline_name, final_grade):
+        self.student_grades[discipline_name] = final_grade 
     
     def save_points_to_file(self, discipline, exam_name):
         file_path = f"{self.name}_{discipline}_{exam_name}_saved_points.txt"
