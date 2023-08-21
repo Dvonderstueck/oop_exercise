@@ -74,18 +74,18 @@ for teacher in selected_teachers:
     #print(student.name)
 
 
-    for class_obj in class_info:
-     print(class_obj.setup_and_print())
+#     for class_obj in class_info:
+#      print(class_obj.setup_and_print())
      
-     print("Teachers:")
-     for teacher in class_obj.teachers:
-         print(teacher.name)
-     print("Students:")
-     for student in class_obj.students:
-         print(student.name)
-     print()
+#      print("Teachers:")
+#      for teacher in class_obj.teachers:
+#          print(teacher.name)
+#      print("Students:")
+#      for student in class_obj.students:
+#          print(student.name)
+#      print()
 
-print(director1.get_full_info())
+# print(director1.get_full_info())
 
 
 

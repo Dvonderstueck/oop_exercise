@@ -21,10 +21,13 @@ class Student(info):
         return input(question)
     
     def get_final_grade(self, discipline_name):
-        return self.student_grades.get(discipline_name)  # Use student_grades here
+        return self.student_grades.get(discipline_name)  
 
     def add_final_grade(self, discipline_name, final_grade):
         self.student_grades[discipline_name] = final_grade 
+
+    def get_exam_grades(self, discipline_name):
+        return self.student_grades.get(discipline_name)
     
     def save_points_to_file(self, discipline, exam_name):
         file_path = f"{self.name}_{discipline}_{exam_name}_saved_points.txt"

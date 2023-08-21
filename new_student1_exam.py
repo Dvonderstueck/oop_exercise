@@ -67,7 +67,7 @@ for i, (discipline, question_info, user_answer) in enumerate(user_inputs_exam1):
      correct_answer = exam1_math.exam1_math_exam_answer[i]
      if user_answer == correct_answer:
          print("Correct!")
-         total_points_exam1 += 1
+         total_points_exam1 += 4
      else:
          print("Incorrect. The correct answer is:", correct_answer)
 
@@ -85,7 +85,7 @@ for i, (discipline, question_info, user_answer) in enumerate(user_inputs_exam2):
      correct_answer = exam2_math.exam2_math_exam_answer[i]
      if user_answer == correct_answer:
         print("Correct!")
-        total_points_exam2 += 1
+        total_points_exam2 += 4
      else:
          print("Incorrect. The correct answer is:", correct_answer)
 
@@ -100,17 +100,18 @@ user_inputs_exam3 = list(map(lambda q: (q[0], q[1], new_student1.get_input(f"{q[
 total_points_exam3 = 0
 
 for i, (discipline, question_info, user_answer) in enumerate(user_inputs_exam3):
-   correct_answer = exam3_math.exam3_math_exam_answer[i]
-   if user_answer == correct_answer:
+    correct_answer = exam3_math.exam3_math_exam_answer[i]
+    if user_answer == correct_answer:
         print("Correct!")
-        total_points_exam3 += 1
-else:
+        total_points_exam3 += 4
+    else:
         print("Incorrect. The correct answer is:", correct_answer)
 
 print(f"Total points earned in exam3: {total_points_exam3}")
 new_student1.add_grade(math_discipline.name, total_points_exam3)
-
 new_student1.save_points_to_file(math_discipline.name, "exam3")
+
+
 
 #English exam 1
 teacher_questions_exam1_english = exam1_english.exam_questions
@@ -122,7 +123,7 @@ for i, (discipline, question_info, user_answer) in enumerate(user_inputs_exam1):
      correct_answer = exam1_english.exam1_english_exam_answer[i]
      if user_answer == correct_answer:
          print("Correct!")
-         total_points_exam1 += 1
+         total_points_exam1 += 2
      else:
          print("Incorrect. The correct answer is:", correct_answer)
 
@@ -141,7 +142,7 @@ for i, (discipline, question_info, user_answer) in enumerate(user_inputs_exam2):
      correct_answer = exam2_english.exam2_english_exam_answer[i]
      if user_answer == correct_answer:
          print("Correct!")
-         total_points_exam2 += 1
+         total_points_exam2 += 2
      else:
          print("Incorrect. The correct answer is:", correct_answer)
 
@@ -160,7 +161,7 @@ for i, (discipline, question_info, user_answer) in enumerate(user_inputs_exam1):
      correct_answer = exam1_physics.exam1_physics_exam_answer[i]
      if user_answer == correct_answer:
          print("Correct!")
-         total_points_exam1 += 1
+         total_points_exam1 += 4
      else:
          print("Incorrect. The correct answer is:", correct_answer)
 
@@ -179,7 +180,7 @@ for i, (discipline, question_info, user_answer) in enumerate(user_inputs_exam2):
      correct_answer = exam2_physics.exam2_physics_exam_answer[i]
      if user_answer == correct_answer:
          print("Correct!")
-         total_points_exam2 += 1
+         total_points_exam2 += 4
      else:
          print("Incorrect. The correct answer is:", correct_answer)
 
@@ -198,14 +199,13 @@ for i, (discipline, question_info, user_answer) in enumerate(user_inputs_exam3):
      correct_answer = exam3_physics.exam3_physics_exam_answer[i]
      if user_answer == correct_answer:
          print("Correct!")
-         total_points_exam3 += 1
+         total_points_exam3 += 4
      else:
          print("Incorrect. The correct answer is:", correct_answer)
 
 print(f"Total points earned in exam3: {total_points_exam3}")
 new_student1.add_grade(physics_discipline.name, total_points_exam3)
 new_student1.save_points_to_file(physics_discipline.name, "exam3")
-
 
 
 
@@ -217,3 +217,13 @@ print(f"Final grade for {english_discipline.name}: {final_grade_english}")
 
 final_grade_physics = physics_discipline.calculate_final_grade_physics(total_points_exam1, total_points_exam2, total_points_exam3)
 print(f"Final grade for {physics_discipline.name}: {final_grade_physics}")
+
+new_student1.add_final_grade(math_discipline.name, final_grade_math)
+new_student1.add_final_grade(english_discipline.name, final_grade_english)
+new_student1.add_final_grade(physics_discipline.name, final_grade_physics)
+
+math_final_grade = new_student1.get_final_grade(math_discipline.name)
+english_final_grade = new_student1.get_final_grade(english_discipline.name)
+physics_final_grade = new_student1.get_final_grade(physics_discipline.name)
+
+

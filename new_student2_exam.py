@@ -226,4 +226,3 @@ math_final_grade = new_student2.get_final_grade(math_discipline.name)
 english_final_grade = new_student2.get_final_grade(english_discipline.name)
 physics_final_grade = new_student2.get_final_grade(physics_discipline.name)
 
-
