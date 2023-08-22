@@ -19,9 +19,9 @@ class exam_question():
     def get_correct_answer(self, index):
         return self.exam1_math_exam_answer[index]
 
-    def list_exam_questions(self):
-        exam_questions_info = ""
-        for discipline, question_text in self.exam_questions:
-            exam_questions_info += f"Discipline: {discipline}\nQuestion: {question_text}\n\n"
-        return exam_questions_info
+    # def list_exam_questions(self):
+    #     exam_questions_info = ""
+    #     for discipline, question_text in self.exam_questions:
+    #         exam_questions_info += f"Discipline: {discipline}\nQuestion: {question_text}\n\n"
+    #     return exam_questions_info
     

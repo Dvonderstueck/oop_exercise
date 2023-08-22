@@ -8,6 +8,7 @@ from Secretary_class import Secretary
 from Exam_question_class import exam_question
 from Adress_class import adress
 from Schooluitils_class import SchoolUtils
+from Secretary_class import Secretary
 
 
 
@@ -28,6 +29,8 @@ class School:
 
     def get_full_info(self):
      return f"Name: {self.name}\nEmail: {self.email}\nAddress: {self.adress}"
+    
+    
 
     
 
@@ -35,8 +38,8 @@ class School:
 school = School("Europa Schule köln")
 
 
-math_teacher = Teacher("Lukas", "max@example.com", address_instance.generate_random_address())
-
+math_teacher = Teacher("Lukas", "max@school.com", address_instance.generate_random_address())
+school_secretary = Secretary("Jenny", "secretary@school.com", address_instance.generate_random_address())
 new_student1 = Student("Max", "max@example.com", address_instance.generate_random_address())
 new_student2 = Student("john", "max@example.com", address_instance.generate_random_address())
 director1 = Director("Schmidt", "Schmidt@school.com", address_instance.generate_random_address(), "Europaschule köln")
@@ -71,11 +74,11 @@ for teacher in selected_teachers:
     class1.add_teacher(teacher)
 
 #for student in school.students:
-    #print(student.name)
+   # print(student.name)
 
 
-#     for class_obj in class_info:
-#      print(class_obj.setup_and_print())
+   # for class_obj in class_info:
+    #  print(class_obj.setup_and_print())
      
 #      print("Teachers:")
 #      for teacher in class_obj.teachers:

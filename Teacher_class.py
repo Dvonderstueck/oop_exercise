@@ -10,9 +10,7 @@ class Teacher(info):
         self.taught_disciplines.append(discipline)
 
     
-    def create_exam(self, discipline, questions):
-        if discipline in self.taught_disciplines:
-            self.exam_questions[discipline] = questions
-        else:
-            print(f"{self.name} doesn't teach {discipline}.")
+   # exam_questions_math = [] 
+   # exam_questions_english = [] 
+   # exam_questions_physics = [] 
             

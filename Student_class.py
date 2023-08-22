@@ -37,7 +37,7 @@ class Student(info):
         try:
             with open(file_path, 'r') as file:
                 existing_line = file.readline()
-                existing_points = int(existing_line.split(': ')[-1].strip())
+                existing_points = float(existing_line.split(': ')[-1].strip())
         except FileNotFoundError:
             pass
         
