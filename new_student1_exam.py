@@ -4,15 +4,15 @@ from classes_class import classes
 from Discipline_class import Discipline
 from Teacher_class import Teacher
 from Director_class import Director
-from Secretary_class import Secretary
 from Exam_question_class import exam_question
-from School_class import school
 from Adress_class import adress
 from Math_class import Math
 from English_class import English
 from Physics_class import Physics
+import sec_class
 
 address_instance = adress()
+
 
 math_discipline = Math("Mathematics")
 physics_discipline = Physics("Physics")
@@ -23,6 +23,7 @@ exam1_english, exam2_english = english_discipline.conduct_exams()
 exam1_physics, exam2_physics, exam3_physics = physics_discipline.conduct_exams()
 
 new_student1 = Student("Max", "max@example.com", address_instance.generate_random_address())
+school_secretary = sec_class.Secretary("Jenny", "secretary@school.com", address_instance.generate_random_address())  
 
 #Math exam 1
 teacher_questions_exam1_math = exam1_math.exam_questions
@@ -177,7 +178,6 @@ new_student1.add_grade(physics_discipline.name, total_points_exam3_physics)
 new_student1.save_points_to_file(physics_discipline.name, "exam3")
 
 
-
 final_grade_math = math_discipline.calculate_final_grade(total_points_exam1_math, total_points_exam2_math, total_points_exam3_math)
 print(f"Final grade for {math_discipline.name}: {final_grade_math}")
 
@@ -194,5 +194,18 @@ new_student1.add_final_grade(physics_discipline.name, final_grade_physics)
 math_final_grade = new_student1.get_final_grade(math_discipline.name)
 english_final_grade = new_student1.get_final_grade(english_discipline.name)
 physics_final_grade = new_student1.get_final_grade(physics_discipline.name)
+
+#final_grade = school_secretary.get_final_grade_secretary(new_student1, math_discipline.name)
+#print(f"Final grade for {math_discipline.name}: {final_grade}")
+
+# print(new_student1.student_grades)
+# final_grade = new_student1.get_final_grade(math_discipline.name)
+# print("Final Grade:", final_grade)
+
+
+
+
+
+
 
 

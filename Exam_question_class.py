@@ -10,7 +10,7 @@ class exam_question():
 
         self.exam1_physics_exam_answer = ["gravity", "friction", "kinetic energy"]
         self.exam2_physics_exam_answer = ["potential energy", "seconds", "it decreases"]
-        self.exam3_physics_exam_answer = ["static electricity", "mass", "weight"]
+        self.exam3_physics_exam_answer = ["static energy", "mass", "weight"]
         
 
     def ask_question(self, discipline, question_text):

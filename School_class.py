@@ -4,11 +4,14 @@ from classes_class import classes
 from Discipline_class import Discipline
 from Teacher_class import Teacher
 from Director_class import Director
-from Secretary_class import Secretary
+#from Secretary_class import Secretary
+import sec_class
 from Exam_question_class import exam_question
 from Adress_class import adress
 from Schooluitils_class import SchoolUtils
-from Secretary_class import Secretary
+from new_student1_exam import final_grade_math
+
+
 
 
 
@@ -39,7 +42,7 @@ school = School("Europa Schule köln")
 
 
 math_teacher = Teacher("Lukas", "max@school.com", address_instance.generate_random_address())
-school_secretary = Secretary("Jenny", "secretary@school.com", address_instance.generate_random_address())
+school_secretary = sec_class.Secretary("Jenny", "secretary@school.com", address_instance.generate_random_address())  
 new_student1 = Student("Max", "max@example.com", address_instance.generate_random_address())
 new_student2 = Student("john", "max@example.com", address_instance.generate_random_address())
 director1 = Director("Schmidt", "Schmidt@school.com", address_instance.generate_random_address(), "Europaschule köln")
@@ -73,7 +76,23 @@ for student in selected_students:
 for teacher in selected_teachers:
     class1.add_teacher(teacher)
 
-#for student in school.students:
+new_student1.add_grade(math_discipline.name, final_grade_math)
+
+
+
+
+final_grade = school_secretary.get_final_grade_secretary(new_student1, math_discipline.name)
+print(f"Final grade for {math_discipline.name}: {final_grade}")
+
+# final_grade_math = 10
+# new_student1.add_final_grade("Mathematics", final_grade_math)
+
+# final_grade = school_secretary.get_final_grade_secretary(new_student1, math_discipline.name)
+
+# print(f"Final grade for {math_discipline.name}: {final_grade}")
+
+
+#for student in school.students:    
    # print(student.name)
 
 
@@ -89,6 +108,7 @@ for teacher in selected_teachers:
 #      print()
 
 # print(director1.get_full_info())
+
 
 
 

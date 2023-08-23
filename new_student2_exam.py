@@ -4,9 +4,7 @@ from classes_class import classes
 from Discipline_class import Discipline
 from Teacher_class import Teacher
 from Director_class import Director
-from Secretary_class import Secretary
 from Exam_question_class import exam_question
-from School_class import school
 from Adress_class import adress
 from Math_class import Math
 from English_class import English
@@ -129,7 +127,7 @@ for i, (discipline, question_info, user_answer) in enumerate(user_inputs_exam1):
      correct_answer = exam1_physics.exam1_physics_exam_answer[i]
      if user_answer == correct_answer:
          print("Correct!")
-         total_points_exam1_physics += 4
+         total_points_exam1_physics += 3.35
      else:
          print("Incorrect. The correct answer is:", correct_answer)
 
@@ -148,7 +146,7 @@ for i, (discipline, question_info, user_answer) in enumerate(user_inputs_exam2):
      correct_answer = exam2_physics.exam2_physics_exam_answer[i]
      if user_answer == correct_answer:
          print("Correct!")
-         total_points_exam2_physics += 4
+         total_points_exam2_physics += 3.35
      else:
          print("Incorrect. The correct answer is:", correct_answer)
 
@@ -167,7 +165,7 @@ for i, (discipline, question_info, user_answer) in enumerate(user_inputs_exam3):
      correct_answer = exam3_physics.exam3_physics_exam_answer[i]
      if user_answer == correct_answer:
          print("Correct!")
-         total_points_exam3_physics += 4
+         total_points_exam3_physics += 3.35
      else:
          print("Incorrect. The correct answer is:", correct_answer)
 

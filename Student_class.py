@@ -20,6 +20,8 @@ class Student(info):
     def get_input(question):  
         return input(question)
     
+
+    
     def get_final_grade(self, discipline_name):
         return self.student_grades.get(discipline_name)  
 
@@ -38,6 +40,7 @@ class Student(info):
             with open(file_path, 'r') as file:
                 existing_line = file.readline()
                 existing_points = float(existing_line.split(': ')[-1].strip())
+                print(existing_points)
         except FileNotFoundError:
             pass
         
