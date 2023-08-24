@@ -33,7 +33,7 @@ total_points_exam1_math = 0
 
 for i, (discipline, question_info, user_answer) in enumerate(user_inputs_exam1):
      correct_answer = exam1_math.exam1_math_exam_answer[i]
-     if user_answer == correct_answer:
+     if user_answer == correct_answer: 
          print("Correct!")
          total_points_exam1_math += 3.35
      else:

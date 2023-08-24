@@ -12,6 +12,8 @@ class Math(Discipline):
         final_grade = total_points / 6.0  
         return final_grade
     
+   
+    
     def conduct_exams(self):
         exam1_math = exam_question()
         exam1_math.ask_question(self.name, "What is 2+3?")

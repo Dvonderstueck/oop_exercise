@@ -14,7 +14,7 @@ class Physics(Discipline):
         self.exam_questions.append((discipline, question_text))
 
     def get_correct_answer(self, index):
-        return self.exam1_math_exam_answer[index]
+     return self.exam1_physics_exam_answer[index]
     
     def conduct_exams(self):
         exam1_physics = exam_question()
