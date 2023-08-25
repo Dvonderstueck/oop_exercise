@@ -11,15 +11,12 @@ def calculate_and_add_final_grade(student, discipline_instance, exam_results):
     student.add_final_grade(discipline_instance.name, final_grade)
     print(f"Final grade for {discipline_instance.name}: {final_grade}")
 
-
-def exams_for_student(student_name, student_email):
+def exams_for_student(student_instance):
     address_instance = adress()
 
     math_discipline = Math("Mathematics")
     physics_discipline = Physics("Physics")
     english_discipline = English("English")
-
-    new_student = Student(student_name, student_email, address_instance.generate_random_address())
 
     exam_results = []
 
@@ -32,42 +29,31 @@ def exams_for_student(student_name, student_email):
     }
 
     for discipline_instance in disciplines:
-        exams = discipline_instance.conduct_exams()  
+        exams = discipline_instance.conduct_exams()
 
-         
-        
         for exam_num, exam in enumerate(exams, start=1):
             correct_answer_attr = getattr(exam, f'exam{exam_num}_{discipline_instance.name.lower()}_exam_answer')
-            exam_questions = exam.exam_questions 
-            
-            points_earned = 0
-            user_inputs = list(map(lambda q: (q[0], q[1], new_student.get_input(f"{q[0]} - {q[1]}: ")), exam_questions))
+            exam_questions = exam.exam_questions
 
-        
+            points_earned = 0
+            user_inputs = list(map(lambda q: (q[0], q[1], student_instance.get_input(f"{q[0]} - {q[1]}: ")), exam_questions))
 
             for i, (discipline, question_info, user_inputs,) in enumerate(user_inputs):
                 correct_answer = correct_answer_attr[i]
-                if user_inputs == correct_answer: 
+                if user_inputs == correct_answer:
                     print("Correct!")
                     points_earned += discipline_point_values[discipline_instance.name]
                 else:
                     print("Incorrect. The correct answer is:", correct_answer)
 
-               
-            print(f"Total points earned in this exam: {discipline_point_values[discipline_instance.name]}")    
+            print(f"Total points earned in this exam: {discipline_point_values[discipline_instance.name]}")
             exam_results.append((discipline_instance.name, exam_num, points_earned))
-            new_student.add_grade(discipline_instance.name, points_earned)
-            new_student.save_points_to_file(discipline_instance.name, f"exam{exam_num}")
-    
-      
+            student_instance.add_grade(discipline_instance.name, points_earned)
+            student_instance.save_points_to_file(discipline_instance.name, f"exam{exam_num}")
+
     for discipline_instance in disciplines:
-        calculate_and_add_final_grade(new_student, discipline_instance, exam_results)
+        calculate_and_add_final_grade(student_instance, discipline_instance, exam_results)
 
-    return new_student
+    return student_instance
 
-
-
-student_name = "max"
-student_email = "sdf"
-new_student = exams_for_student(student_name, student_email)
-
+address_instance = adress()

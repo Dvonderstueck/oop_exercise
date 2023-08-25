@@ -1,4 +1,4 @@
-
+from Communication_class import Communication
 from Student_class import Student
 from classes_class import classes   
 from Discipline_class import Discipline
@@ -9,10 +9,12 @@ import sec_class
 from Exam_question_class import exam_question
 from Adress_class import adress
 from Schooluitils_class import SchoolUtils
-from new_student1_exam import final_grade_math
+#from new_student1_exam import final_grade_math
+import test123
+from Par_class import Parent
 
 
-
+communication_system = Communication()
 
 
 address_instance = adress()
@@ -46,6 +48,8 @@ school_secretary = sec_class.Secretary("Jenny", "secretary@school.com", address_
 new_student1 = Student("Max", "max@example.com", address_instance.generate_random_address())
 new_student2 = Student("john", "max@example.com", address_instance.generate_random_address())
 director1 = Director("Schmidt", "Schmidt@school.com", address_instance.generate_random_address(), "Europaschule köln")
+parent_instance = Parent("Lena", "Lena@gmail.com", "Boissereestraße 3, 50674 Köln")
+
 
 
 
@@ -76,20 +80,20 @@ for student in selected_students:
 for teacher in selected_teachers:
     class1.add_teacher(teacher)
 
-new_student1.add_grade(math_discipline.name, final_grade_math)
 
 
+#new_student2 = test123.exams_for_student(new_student2)
+
+#final_grade_math = school_secretary.get_final_grade_secretary(new_student2, math_discipline.name)
+#print(f"Final grade for {math_discipline.name} (via Secretary): {final_grade_math}")
+
+#final_grade_english = school_secretary.get_final_grade_secretary(new_student2, english_discipline.name)
+#print(f"Final grade for {english_discipline.name} (via Secretary): {final_grade_english}")
+
+###final_grade_physics = school_secretary.get_final_grade_secretary(new_student2, physics_discipline.name)
+####print(f"Final grade for {physics_discipline.name} (via Secretary): {final_grade_physics}")
 
 
-final_grade = school_secretary.get_final_grade_secretary(new_student1, math_discipline.name)
-print(f"Final grade for {math_discipline.name}: {final_grade}")
-
-# final_grade_math = 10
-# new_student1.add_final_grade("Mathematics", final_grade_math)
-
-# final_grade = school_secretary.get_final_grade_secretary(new_student1, math_discipline.name)
-
-# print(f"Final grade for {math_discipline.name}: {final_grade}")
 
 
 #for student in school.students:    
@@ -107,10 +111,18 @@ print(f"Final grade for {math_discipline.name}: {final_grade}")
 #          print(student.name)
 #      print()
 
-# print(director1.get_full_info())
+#print(new_student2.get_full_info())
 
 
+teacher_name = "John Doe"
+parent_name = parent_instance
+message = "Your child's performance has improved."
+communication_system.send_message(teacher_name, parent_name, message)
 
+# Parent checks received messages
+parent_received_messages = communication_system.get_messages(parent_name)
+for msg in parent_received_messages:
+    print(f"From: {msg['sender']}\nMessage: {msg['message']}")
 
 #for teacher in school.teachers:
    # print(teacher.name)

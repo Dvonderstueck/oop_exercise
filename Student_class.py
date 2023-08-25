@@ -34,21 +34,9 @@ class Student(info):
     def save_points_to_file(self, discipline, exam_name):
         file_path = f"{self.name}_{discipline}_{exam_name}_saved_points.txt"
         
-      # Read existing points from the file (if it exists)
-        existing_points = 0
-        try:
-            with open(file_path, 'r') as file:
-                existing_line = file.readline()
-                existing_points = float(existing_line.split(': ')[-1].strip())
-                #print(existing_points)
-        except FileNotFoundError:
-            pass
-        
         new_points = self.student_grades.get(discipline, 0)
-        #total_points = existing_points + new_points
         
-       
-        with open(file_path, 'a') as file:  
+        with open(file_path, 'w') as file:  
             file.write(f"Saved points for {discipline}: {new_points}\n")
         
         print(f"Total points for {discipline} in {exam_name} have been updated and saved to {file_path}")
@@ -57,5 +45,4 @@ class Student(info):
 
 
     
-   # def get_grade(self):
-   # return f"Teacher: {Teacher1.name}\nGrade: {self.student_grades}"
+  
