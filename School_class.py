@@ -82,7 +82,7 @@ for teacher in selected_teachers:
 
 
 
-#new_student2 = test123.exams_for_student(new_student2)
+new_student2 = test123.exams_for_student(new_student2)
 
 #final_grade_math = school_secretary.get_final_grade_secretary(new_student2, math_discipline.name)
 #print(f"Final grade for {math_discipline.name} (via Secretary): {final_grade_math}")
@@ -114,15 +114,15 @@ for teacher in selected_teachers:
 #print(new_student2.get_full_info())
 
 
-teacher_name = "John Doe"
-parent_name = parent_instance
-message = "Your child's performance has improved."
-communication_system.send_message(teacher_name, parent_name, message)
+# teacher_name = "John Doe"
+# parent_name = parent_instance
+# message = "Your child's performance has improved."
+# communication_system.send_message(teacher_name, parent_name, message)
 
-# Parent checks received messages
-parent_received_messages = communication_system.get_messages(parent_name)
-for msg in parent_received_messages:
-    print(f"From: {msg['sender']}\nMessage: {msg['message']}")
+# # Parent checks received messages
+# parent_received_messages = communication_system.get_messages(parent_name)
+# for msg in parent_received_messages:
+#     print(f"From: {msg['sender']}\nMessage: {msg['message']}")
 
 #for teacher in school.teachers:
    # print(teacher.name)
