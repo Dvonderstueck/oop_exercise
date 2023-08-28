@@ -1,4 +1,4 @@
-from Schooluitils_class import SchoolUtils
+
 from info_class import info
 class Director(info):
   
@@ -6,6 +6,7 @@ class Director(info):
   assigned_schools = {} # Ein Dictionary zur Zuordnung von Schulen zu Schulleitern.
 
   def __init__(self, name, email, address, school_name):
+         
          super().__init__(name, email, address)
          if school_name in Director.assigned_schools:
              raise ValueError(f"{school_name} already has a director.")

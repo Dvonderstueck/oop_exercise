@@ -67,8 +67,8 @@ def exams_for_student(student_instance):
     disciplines = [math_discipline, physics_discipline, english_discipline]
 
     discipline_point_values = {
-        "Mathematics": 3.35,
-        "Physics": 4,
+        "Mathematics": 3.4,
+        "Physics": 3.35,
         "English": 1.67,
     }
 
