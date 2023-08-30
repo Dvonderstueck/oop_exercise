@@ -11,10 +11,12 @@ math_exam_list = Math("Mathematics")
 english_exam_list = English("English")
 physics_exam_list = Physics("Physics")
 
+
 class Teacher(info):
     def __init__(self, name, email, address):
         super().__init__(name, email, address)
-        self.taught_disciplines = []  # A list of taught disciplines.
+        self.taught_disciplines = []
+        self.teachers = []  
          
        
 
@@ -30,6 +32,19 @@ class Teacher(info):
                     print(question[1])
                 print()
 
+    
+    def teacher_discipline(self):
+     print("List of Teachers with their disciplines:")
+     for teacher in self.teachers:
+        print(teacher.name)
+        print(teacher.taught_disciplines)
+        
+
+        
+
+    
+   
+
 
 
 
@@ -38,9 +53,12 @@ english_teacher = Teacher("Nina", "Nina@school.com", address_instance.generate_r
 physics_teacher = Teacher("Tommy", "Tommy@school.com", address_instance.generate_random_address())
 
 
+
 math_teacher.teach_discipline(math_exam_list,physics_exam_list)
 english_teacher.teach_discipline(english_exam_list,math_exam_list)
 physics_teacher.teach_discipline(physics_exam_list,physics_exam_list)
+
+print()
 
 
 

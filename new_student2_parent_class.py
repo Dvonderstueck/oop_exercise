@@ -5,17 +5,27 @@ class student2_par(par_exam_grade):
         with open(filename, "r") as f:
             return f.read()
         
-John_par = student2_par()
-math_exam1 = John_par.read_file("john_Mathematics_exam1_saved_points.txt")
-math_exam2 = John_par.read_file("john_Mathematics_exam2_saved_points.txt")
-math_exam3 = John_par.read_file("john_Mathematics_exam3_saved_points.txt")
 
-english_exam1 = John_par.read_file("john_english_exam1_saved_points.txt")
-english_exam2 = John_par.read_file("john_english_exam2_saved_points.txt")
+student2 = student2_par()
 
-physics_exam1 = John_par.read_file("john_Physics_exam1_saved_points.txt")
-physics_exam2 = John_par.read_file("john_Physics_exam2_saved_points.txt")
-physics_exam3 = John_par.read_file("john_Physics_exam3_saved_points.txt")
-print(physics_exam1)
+class Student2_exam_points:
+    def read_exam_data(exam_names):
+        exam_data = {}
+        
+        for exam_name in exam_names:
+            data = student2.read_file(f"john_{exam_name}_saved_points.txt")
+            exam_data[exam_name] = data
+        
+        return exam_data
 
-###### ( das noch in main ??????) #######
+    exam_names_math = ["Mathematics_exam1", "Mathematics_exam2", "Mathematics_exam3"]
+    exam_names_english = ["english_exam1", "english_exam2"]
+    exam_names_physics = ["Physics_exam1", "Physics_exam2", "Physics_exam3"]
+
+    math_exam_data = read_exam_data(exam_names_math)
+    english_exam_data = read_exam_data(exam_names_english)
+    physics_exam_data = read_exam_data(exam_names_physics)
+
+
+
+

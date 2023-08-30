@@ -9,3 +9,6 @@ class SchoolUtils:
 address_instance = adress()
 director1 = Director("Schmidt", "Schmidt@school.com", address_instance.generate_random_address(), "")
 SchoolUtils.teach(director1, "math")
+
+
+##### überarbeiten #####

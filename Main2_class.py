@@ -5,6 +5,7 @@ from Discipline_class import Discipline
 from Adress_class import adress
 import sec_class
 from Teacher_class import Teacher
+import Teacher_class
 from Director_class import Director
 from School_class import School
 from classes_class import classes 
@@ -13,8 +14,9 @@ from info_class import info
 from Math_class import Math
 from English_class import English
 from Physics_class import Physics
-from new_student1_parent_class import student1_par
-from new_student2_parent_class import student2_par
+from new_student1_parent_class import Student1_exam_points
+from new_student2_parent_class import Student2_exam_points
+
 
 
 class Main_preparation_class:
@@ -32,35 +34,20 @@ class Main_preparation_class:
         self.math_exam_list = Math("Mathematics")
         self.english_exam_list = English("English")
         self.physics_exam_list = Physics("Physics")
-        self.Max_par = student1_par()
+     
 
-
-        
-        self.math_exam1 = self.Max_par.read_file("max_Mathematics_exam1_saved_points.txt")
-        # math_exam2 = Max_par.read_file("max_Mathematics_exam2_saved_points.txt")
-        # math_exam3 = Max_par.read_file("max_Mathematics_exam3_saved_points.txt")
-
-        # english_exam1 = Max_par.read_file("max_english_exam1_saved_points.txt")
-        # english_exam2 = Max_par.read_file("max_english_exam2_saved_points.txt")
-
-        # physics_exam1 = Max_par.read_file("max_Physics_exam1_saved_points.txt")
-        # physics_exam2 = Max_par.read_file("max_Physics_exam2_saved_points.txt")
-        # physics_exam3 = Max_par.read_file("max_Physics_exam3_saved_points.txt")
-
-       
-
-    
 
     def run(self):
-        choice = input("What action would you like to perform? (1: Print students and teachers, 2: Print classes, 3: exam questions, 4: Run exam , 5: exam points student 1 , 6: Exit): ")
+        choice = input("What action would you like to perform? (1: Print students and teachers, 2: Print classes, 3: exam questions, 4: Run exam , 5: exam points student 1 , 6: exam points student 2 , 7: Exit): ")
 
         if choice == "1":
             self.school.add_teacher(self.math_teacher)
             self.school.add_teacher(self.english_teacher)
             self.school.add_teacher(self.physics_teacher)
+            self.school.add_Director(self.director1)
             self.school.add_student(self.new_student1)
             self.school.add_student(self.new_student2)
-            self.person = classes.print_students_and_teachers(self)
+            self.person = classes.print_students_teachers_and_director(self)
             
         elif choice == "2":
             self.school_class_instance = school_class_list()
@@ -77,9 +64,36 @@ class Main_preparation_class:
             self.new_student2 = test123.exams_for_student(self.new_student1)
 
         elif choice == "5":
-             print(self.math_exam1)
+             self.student1_exam_points1 = Student1_exam_points.math_exam_data
+             self.student1_exam_points2 = Student1_exam_points.english_exam_data
+             self.student1_exam_points3 = Student1_exam_points.physics_exam_data
+             print(self.student1_exam_points1, "\n" + self.student1_exam_points2, "\n" + self.student1_exam_points3)
+
         
+        elif choice == "8":
+            if self.director1.can_do_everything:
+                self.director1.teach_discipline(self.math_exam_list, self.english_exam_list, self.physics_exam_list)
+                self.director1.exam_quest_list_teacher(self.math_exam_list, self.english_exam_list, self.physics_exam_list)
+
+        elif choice == "9":
+            self.math_teacher.teach_discipline(self.math_exam_list,self.physics_exam_list)
+            self.english_teacher.teach_discipline(self.english_exam_list,self.math_exam_list)
+            self.physics_teacher.teach_discipline(self.physics_exam_list,self.physics_exam_list)
+            self.asdf = Teacher.teacher_discipline
+            print(self.asdf)
+            
+
+
+            
+
+
         elif choice == "6":
+             self.Student2_exam_points1 = Student2_exam_points.math_exam_data
+             self.Student2_exam_points2 = Student2_exam_points.english_exam_data
+             self.Student2_exam_points3 = Student2_exam_points.physics_exam_data
+             (print(self.Student2_exam_points1, "\n", self.Student2_exam_points2, "\n", self.Student2_exam_points3, "\n"))
+        
+        elif choice == "7":
             print("Exiting the program.")
             return
         

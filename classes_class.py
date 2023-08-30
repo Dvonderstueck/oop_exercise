@@ -5,6 +5,7 @@ class classes:
         self.disciplines = []
         self.students = []
         self.teachers = []
+        self.directors = []
         
 
     def add_discipline(self, discipline):
@@ -19,7 +20,7 @@ class classes:
     def add_teacher(self, teacher):
         self.teachers.append(teacher)
 
-    def print_students_and_teachers(self):
+    def print_students_teachers_and_director(self):
         print("List of Students:")
         for student in self.school.students:
             print(student.name)
@@ -27,5 +28,9 @@ class classes:
         print("\nList of Teachers:")
         for teacher in self.school.teachers:
             print(teacher.name)
+
+        print("\nDirector:")
+        for director in self.school.directors:
+            print(director.name)
     
   

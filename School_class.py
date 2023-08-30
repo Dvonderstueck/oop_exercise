@@ -14,6 +14,7 @@ class School:
         self.adress = address_instance
         self.students = []
         self.teachers = []
+        self.directors = []
 
     def add_student(self, student):
         self.students.append(student)
@@ -22,8 +23,13 @@ class School:
     def add_teacher(self, teacher):
         self.teachers.append(teacher)
 
+    def add_Director(self, director):
+        self.directors.append(director)
 
- ####### (vielleicht direktor adden??????) ########
+    
+
+
+
         
 
     
