@@ -18,9 +18,14 @@ class classes:
 
     def add_teacher(self, teacher):
         self.teachers.append(teacher)
+
+    def print_students_and_teachers(self):
+        print("List of Students:")
+        for student in self.school.students:
+            print(student.name)
+
+        print("\nList of Teachers:")
+        for teacher in self.school.teachers:
+            print(teacher.name)
     
-    def setup_and_print(self, *disciplines):
-        for discipline in disciplines:
-            self.add_discipline(discipline)
-        disciplines_info = ", ".join(self.list_disciplines())
-        return f"Class: {self.name}\nDisciplines: {disciplines_info}\n"
+  

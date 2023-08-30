@@ -25,29 +25,48 @@ class school_class_list:
 
 
         math_teacher = Teacher("Lukas", "max@school.com", address_instance.generate_random_address())
+        english_teacher = Teacher("Nina", "Nina@school.com",address_instance.generate_random_address())
+        physics_teacher = Teacher("Tommy", "Tommy@school.com",address_instance.generate_random_address())
         new_student1 = Student("Max", "max@example.com", address_instance.generate_random_address())
         new_student2 = Student("john", "max@example.com", address_instance.generate_random_address())
 
-
-        selected_students = [new_student1]
-        selected_teachers = [math_teacher]
-
-        for student in selected_students:
-            class1.add_student(student)
-        for teacher in selected_teachers:
-            class1.add_teacher(teacher)
-
         class_info = [class1, class2]
-        for class_obj in class_info:
-            print(class_obj.setup_and_print())
-            
-            print("Teachers:")
-            for teacher in class_obj.teachers:
-                print(teacher.name)
-            print("Students:")
-            for student in class_obj.students:
-                print(student.name)
-            print()
+        
+        def add_student_to_class(class_obj, student):
+          if student not in class_obj.students:
+             class_obj.add_student(student)
+          else:
+           print(f"{student.name} is already in {class_obj.name}")
+
+        def add_teacher_to_class(class_obj, teacher):
+          if teacher not in class_obj.teachers:
+             class_obj.add_teacher(teacher)
+          
+        add_teacher_to_class(class1, math_teacher)
+        add_teacher_to_class(class1, physics_teacher)
+        add_teacher_to_class(class2, english_teacher)
+        add_student_to_class(class1, new_student1)
+        add_student_to_class(class2, new_student2)
+        
+
+        return class_info
+    
+    def get_class_info(self, class_obj):
+        class_info = f"Class: {class_obj.name}\n"
+        class_info += f"Disciplines: {', '.join(class_obj.disciplines)}\n\n"
+        
+        class_info += "Teachers:\n"
+        for teacher in class_obj.teachers:
+            class_info += f"{teacher.name}\n"
+        
+        class_info += "Students:\n"
+        for student in class_obj.students:
+            class_info += f"{student.name}\n"
+        
+        return class_info
+
+        
+    
 
 school_class_instance = school_class_list()
 school_class_instance.school_class_list()

@@ -18,12 +18,8 @@ class exam_question():
     def ask_question(self, discipline, question_text):
         self.exam_questions.append((discipline, question_text))
 
-    def get_correct_answer(self, index):
-     return self.exam1_mathematics_exam_answer[index]
+    # def get_correct_answer(self, index):
+    #  return self.exam1_mathematics_exam_answer[index]
 
-    # def list_exam_questions(self):
-    #     exam_questions_info = ""
-    #     for discipline, question_text in self.exam_questions:
-    #         exam_questions_info += f"Discipline: {discipline}\nQuestion: {question_text}\n\n"
-    #     return exam_questions_info
+ 
     

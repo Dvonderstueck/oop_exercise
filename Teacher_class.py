@@ -3,6 +3,9 @@ from Math_class import Math
 from English_class import English
 from Physics_class import Physics
 from Discipline_class import Discipline
+from Adress_class import adress
+
+address_instance = adress()
 
 math_exam_list = Math("Mathematics")  
 english_exam_list = English("English")
@@ -15,8 +18,8 @@ class Teacher(info):
          
        
 
-    def teach_discipline(self, discipline):
-        self.taught_disciplines.append(discipline)
+    def teach_discipline(self, discipline1, discipline2):
+        self.taught_disciplines.extend([discipline1, discipline2])
 
     def exam_quest_list_teacher(self, *disciplines):
         for discipline in disciplines:
@@ -28,20 +31,19 @@ class Teacher(info):
                 print()
 
 
-math_exam_list = Math("Mathematics")
-english_exam_list = English("English")
-physics_exam_list = Physics("Physics")
 
 
-teacher = Teacher("John Doe", "john@example.com", "123 Main St")
+math_teacher = Teacher("Lukas", "Lukas@school.com", address_instance.generate_random_address())
+english_teacher = Teacher("Nina", "Nina@school.com", address_instance.generate_random_address())
+physics_teacher = Teacher("Tommy", "Tommy@school.com", address_instance.generate_random_address())
 
 
-teacher.teach_discipline(math_exam_list)
-teacher.teach_discipline(english_exam_list)
-teacher.teach_discipline(physics_exam_list)
+math_teacher.teach_discipline(math_exam_list,physics_exam_list)
+english_teacher.teach_discipline(english_exam_list,math_exam_list)
+physics_teacher.teach_discipline(physics_exam_list,physics_exam_list)
 
 
-teacher.exam_quest_list_teacher(math_exam_list, english_exam_list, physics_exam_list)
+
 
                
         

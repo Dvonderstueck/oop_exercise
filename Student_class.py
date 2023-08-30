@@ -10,11 +10,6 @@ class Student(info):
     def add_grade(self, discipline, grade):
         self.student_grades[discipline] = grade
 
-    def assign_class(self, class_name):
-        if class_name not in self.assigned_classes:
-            self.assigned_classes.append(class_name)
-        else:
-            print(f"{self.name} is already assigned to {class_name}.")
     
     @staticmethod
     def get_input(question):  

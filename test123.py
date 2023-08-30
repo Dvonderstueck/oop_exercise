@@ -5,20 +5,7 @@ from Physics_class import Physics
 from Student_class import Student
 from Exam_question_class import exam_question
 
-class School:
-    def __init__(self, name):
-        self.name = name
-        self.students = []
-        self.teachers = []
 
-    def add_student(self, student):
-        self.students.append(student)
-
-    def add_teacher(self, teacher):
-        self.teachers.append(teacher)
-
-    def get_full_info(self):
-        return f"Name: {self.name}\nEmail: {self.email}\nAddress: {self.adress}"
 
 def calculate_and_add_final_grade(student, discipline_instance, exam_results):
     discipline_exam_results = [(name, num, points) for name, num, points in exam_results if name == discipline_instance.name]

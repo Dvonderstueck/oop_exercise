@@ -17,3 +17,5 @@ physics_exam1 = Max_par.read_file("max_Physics_exam1_saved_points.txt")
 physics_exam2 = Max_par.read_file("max_Physics_exam2_saved_points.txt")
 physics_exam3 = Max_par.read_file("max_Physics_exam3_saved_points.txt")
 print(english_exam2)
+
+###### ( das noch in main ??????) #######

@@ -13,8 +13,8 @@ class English(Discipline):
     def ask_question(self, discipline, question_text):
         self.exam_questions.append((discipline, question_text))
 
-    def get_correct_answer(self, index):
-     return self.exam1_english_exam_answer[index]
+    # def get_correct_answer(self, index):
+    #  return self.exam1_english_exam_answer[index]
     
     def conduct_exams(self):
         exam1_english = exam_question()

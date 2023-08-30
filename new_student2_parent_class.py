@@ -16,4 +16,6 @@ english_exam2 = John_par.read_file("john_english_exam2_saved_points.txt")
 physics_exam1 = John_par.read_file("john_Physics_exam1_saved_points.txt")
 physics_exam2 = John_par.read_file("john_Physics_exam2_saved_points.txt")
 physics_exam3 = John_par.read_file("john_Physics_exam3_saved_points.txt")
-print(english_exam2)
+print(physics_exam1)
+
+###### ( das noch in main ??????) #######
