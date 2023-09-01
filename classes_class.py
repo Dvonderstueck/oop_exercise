@@ -32,5 +32,13 @@ class classes:
         print("\nDirector:")
         for director in self.school.directors:
             print(director.name)
+
+    def teachers_and_students(self):
+                self.school.add_teacher(self.math_teacher)
+                self.school.add_teacher(self.english_teacher)
+                self.school.add_teacher(self.physics_teacher)
+                self.school.add_Director(self.director1)
+                self.school.add_student(self.new_student1)
+                self.school.add_student(self.new_student2)
     
   

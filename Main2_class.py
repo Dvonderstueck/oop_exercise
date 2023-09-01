@@ -18,7 +18,6 @@ from new_student1_parent_class import Student1_exam_points
 from new_student2_parent_class import Student2_exam_points
 
 
-
 class Main_preparation_class:
     def __init__(self):
         self.address_instance = adress()
@@ -42,60 +41,57 @@ class Main_preparation_class:
 
 
     def run(self):
-        choice = input("What action would you like to perform?\n 1: Print students and teachers,\n 2: Print classes,\n 3: exam questions,\n 4: Run exam,\n 5: exam points student 1,\n 6: exam points student 2,\n 7: List of teachers with their disciplines,\n 8: Director permission,\n 9: Student1 full info,\n 10: Exit: ")
+        choice = input("What action would you like to perform?\n 1: Print students and teachers,\n 2: Print classes,\n 3: exam questions,\n 4: Run exam,\n 5: exam points student 1,\n 6: exam points student 2,\n 7: List of teachers with their disciplines,\n 8: Director permission,\n 9: Student1 full info,\n 10: Run exam where secretary gets the grade for students,\n 11: Exit: ")
 
-        if choice == "1":
-            self.school.add_teacher(self.math_teacher)
-            self.school.add_teacher(self.english_teacher)
-            self.school.add_teacher(self.physics_teacher)
-            self.school.add_Director(self.director1)
-            self.school.add_student(self.new_student1)
-            self.school.add_student(self.new_student2)
-            self.person = classes.print_students_teachers_and_director(self)
+        match choice:
+            case "1":
+                self.person_list = classes.teachers_and_students(self)
+                self.person = classes.print_students_teachers_and_director(self)
             
-        elif choice == "2":
-            self.school_class_instance = school_class_list()
-            class_info = self.school_class_instance.school_class_list()
-            for class_obj in class_info:
+            case "2":
+             self.school_class_instance = school_class_list()
+             class_info = self.school_class_instance.school_class_list()
+             for class_obj in class_info:
                 class_info_str = self.school_class_instance.get_class_info(class_obj)
                 print(class_info_str)
 
-        elif choice == "3":
-            self.math_teacher.exam_quest_list_teacher(self.math_exam_list)
-            self.english_teacher.exam_quest_list_teacher(self.english_exam_list)
-            self.physics_teacher.exam_quest_list_teacher(self.physics_exam_list)
-        elif choice == "4":
-            self.new_student2 = test123.exams_for_student(self.new_student1)
+            case "3":
+             self.math_teacher.exam_quest_list_teacher(self.math_exam_list)
+             self.english_teacher.exam_quest_list_teacher(self.english_exam_list)
+             self.physics_teacher.exam_quest_list_teacher(self.physics_exam_list)
+        
+            case "4":
+             self.new_student2 = test123.exams_for_student(self.new_student1)
 
-        elif choice == "5":
-             self.student1_exam_points1 = Student1_exam_points.math_exam_data
-             self.student1_exam_points2 = Student1_exam_points.english_exam_data
-             self.student1_exam_points3 = Student1_exam_points.physics_exam_data
+            case "5":
+             self.Student1_exam_points = Student1_exam_points.read_student1_points(self)
              print(self.student1_exam_points1, "\n", self.student1_exam_points2, "\n", self.student1_exam_points3, "\n")
 
-        elif choice == "6":
-            self.Student2_exam_points1 = Student2_exam_points.math_exam_data
-            self.Student2_exam_points2 = Student2_exam_points.english_exam_data
-            self.Student2_exam_points3 = Student2_exam_points.physics_exam_data
-            print(self.Student2_exam_points1, "\n", self.Student2_exam_points2, "\n", self.Student2_exam_points3, "\n")
+            case "6":
+             self.Student2_exam_points = Student2_exam_points.read_student2_points(self)
+             print(self.Student2_exam_points1, "\n", self.Student2_exam_points2, "\n", self.Student2_exam_points3, "\n")
 
 
-        elif choice == "7":
-            teachers = [self.math_teacher, self.english_teacher, self.physics_teacher]
-            for teacher in teachers:
+            case "7":
+             teachers = [self.math_teacher, self.english_teacher, self.physics_teacher]
+             for teacher in teachers:
                 teacher.list_teacher_disciplines()
 
-        elif choice == "8":
-         if self.director1.can_do_everything:
+            case "8":
+              if self.director1.can_do_everything:
                 self.director1.teach_discipline(self.math_exam_list, self.english_exam_list, self.physics_exam_list)
                 self.director1.exam_quest_list_teacher(self.math_exam_list, self.english_exam_list, self.physics_exam_list)
 
-        elif choice == "9":
-            print(self.new_student1.get_full_info())
+            case "9":
+             print(self.new_student1.get_full_info())
 
+            case "10":
+             self.new_student2 = test123.exams_for_student(self.new_student2)
+            
+             self.final_grade_via_secretary = sec_class.Secretary.print_final_grade_via_secretary(self)
 
-        elif choice == "10":
-            print("Exiting the program.")
-            return
+            case "11":
+             print("Exiting the program.")
+             return
 
     

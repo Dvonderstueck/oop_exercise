@@ -17,6 +17,11 @@ class Student1_exam_points:
             exam_data[exam_name] = data
         
         return exam_data
+    
+    def read_student1_points(self):
+        self.student1_exam_points1 = Student1_exam_points.math_exam_data
+        self.student1_exam_points2 = Student1_exam_points.english_exam_data
+        self.student1_exam_points3 = Student1_exam_points.physics_exam_data
 
     exam_names_math = ["Mathematics_exam1", "Mathematics_exam2", "Mathematics_exam3"]
     exam_names_english = ["english_exam1", "english_exam2"]

@@ -17,8 +17,6 @@ class Teacher(info):
         super().__init__(name, email, address)
         self.taught_disciplines = []
           
-         
-       
 
     def teach_discipline(self, discipline1, discipline2):
         self.taught_disciplines.extend([discipline1, discipline2])
