@@ -1,5 +1,5 @@
 from Exam_question_class import exam_question
-import test123
+import Exam_class
 from Student_class import Student
 from Discipline_class import Discipline
 from Adress_class import adress
@@ -28,7 +28,7 @@ class Main_preparation_class:
         self.school_secretary = sec_class.Secretary("Jenny", "secretary@school.com", self.address_instance.generate_random_address())
         self.new_student1 = Student("Max", "max@example.com", self.address_instance.generate_random_address())
         self.new_student2 = Student("john", "max@example.com", self.address_instance.generate_random_address())
-        self.director1 = Director("Schmidt", "Schmidt@school.com", self.address_instance.generate_random_address(), "")
+        self.director1 = Director("Schmidt", "Schmidt@school.com", self.address_instance.generate_random_address(), self.school)
 
         self.math_exam_list = Math("Mathematics")
         self.english_exam_list = English("English")
@@ -61,7 +61,7 @@ class Main_preparation_class:
              self.physics_teacher.exam_quest_list_teacher(self.physics_exam_list)
         
             case "4":
-             self.new_student2 = test123.exams_for_student(self.new_student1)
+             self.new_student2 = Exam_class.exams_for_student(self.new_student1)
 
             case "5":
              self.Student1_exam_points = Student1_exam_points.read_student1_points(self)
@@ -83,10 +83,10 @@ class Main_preparation_class:
                 self.director1.exam_quest_list_teacher(self.math_exam_list, self.english_exam_list, self.physics_exam_list)
 
             case "9":
-             print(self.new_student1.get_full_info())
+             print(self.director1.get_full_info())
 
             case "10":
-             self.new_student2 = test123.exams_for_student(self.new_student2)
+             self.new_student2 = Exam_class.exams_for_student(self.new_student2)
             
              self.final_grade_via_secretary = sec_class.Secretary.print_final_grade_via_secretary(self)
 

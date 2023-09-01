@@ -19,6 +19,9 @@ class School:
 
     def add_student(self, student):
         self.students.append(student)
+
+    def __str__(self):
+        return f"{self.name}"
         
     
     def add_teacher(self, teacher):
