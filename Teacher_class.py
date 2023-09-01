@@ -16,7 +16,7 @@ class Teacher(info):
     def __init__(self, name, email, address):
         super().__init__(name, email, address)
         self.taught_disciplines = []
-        self.teachers = []  
+          
          
        
 
@@ -33,11 +33,10 @@ class Teacher(info):
                 print()
 
     
-    def teacher_discipline(self):
-     print("List of Teachers with their disciplines:")
-     for teacher in self.teachers:
-        print(teacher.name)
-        print(teacher.taught_disciplines)
+    def list_teacher_disciplines(self):
+        print(f"{self.name}'s Taught Disciplines:")
+        for discipline in self.taught_disciplines:
+            print(discipline.name)
         
 
         

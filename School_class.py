@@ -15,6 +15,7 @@ class School:
         self.students = []
         self.teachers = []
         self.directors = []
+        self.taught_disciplines = []
 
     def add_student(self, student):
         self.students.append(student)
@@ -25,6 +26,11 @@ class School:
 
     def add_Director(self, director):
         self.directors.append(director)
+
+    def teach_discipline(self, discipline1, discipline2):
+        self.taught_disciplines.extend([discipline1, discipline2])
+
+    
 
     
 

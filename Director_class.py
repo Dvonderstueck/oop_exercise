@@ -13,6 +13,8 @@ class Director(info):
         self.can_do_everything = True
         self.taught_disciplines = []
 
+        
+
     def teach_discipline(self, discipline1, discipline2,  discipline3):
         self.taught_disciplines.extend([discipline1, discipline2,  discipline3])
 
@@ -33,3 +35,5 @@ class Director(info):
 
     def get_full_info(self):
         return f"Name: {self.name}\nEmail: {self.email}\nAddress: {self.address}\nSchool: {self.school_name}"
+    
+    
