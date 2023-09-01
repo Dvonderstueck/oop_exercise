@@ -83,7 +83,7 @@ class Main_preparation_class:
                 self.director1.exam_quest_list_teacher(self.math_exam_list, self.english_exam_list, self.physics_exam_list)
 
             case "9":
-             print(self.director1.get_full_info())
+             print(self.new_student1.get_full_info())
 
             case "10":
              self.new_student2 = Exam_class.exams_for_student(self.new_student2)
