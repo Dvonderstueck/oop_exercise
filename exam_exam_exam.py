@@ -2,10 +2,10 @@ from Exam_question_class import exam_question
 import Exam_class
 from Student_class import Student
 from Discipline_class import Discipline
-from Adress_class import adress
+from Adress_class import Adress
 import sec_class
 
-address_instance = adress()
+address_instance = Adress()
 
 new_student1 = Student("Max", "max@example.com", address_instance.generate_random_address())
 new_student2 = Student("john", "max@example.com", address_instance.generate_random_address())

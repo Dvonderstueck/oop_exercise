@@ -1,11 +1,9 @@
-from Adress_class import adress
+from Adress_class import Adress
 from Math_class import Math
 from English_class import English
 from Physics_class import Physics
 from Student_class import Student
-from Exam_question_class import exam_question
-
-
+from Exam_question_class import ExamQuestion
 
 def calculate_and_add_final_grade(student, discipline_instance, exam_results):
     discipline_exam_results = [(name, num, points) for name, num, points in exam_results if name == discipline_instance.name]

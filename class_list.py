@@ -1,19 +1,18 @@
 from School_class import school
-from classes_class import classes 
+from classes_class import Classes
 from Student_class import Student
 from Teacher_class import Teacher
-from Adress_class import adress
+from Adress_class import Adress
 from Discipline_class import Discipline
-class school_class_list:
 
-
+class SchoolClassList:
 
     def school_class_list(self):
 
-        address_instance = adress()
+        address_instance = Adress()
 
-        class1 = classes("class 1")
-        class2 = classes("class 2") 
+        class1 = Classes("class 1")
+        class2 = Classes("class 2") 
 
         math_discipline = Discipline("Mathematics")
         physics_discipline = Discipline("Physics")
@@ -23,31 +22,29 @@ class school_class_list:
         class1.add_discipline(physics_discipline.name)
         class2.add_discipline(english_discipline.name) 
 
-
-        math_teacher = Teacher("Lukas", "max@school.com", address_instance.generate_random_address())
+        math_teacher = Teacher("Lukas", "lukas@school.com", address_instance.generate_random_address())
         english_teacher = Teacher("Nina", "Nina@school.com",address_instance.generate_random_address())
         physics_teacher = Teacher("Tommy", "Tommy@school.com",address_instance.generate_random_address())
         new_student1 = Student("Max", "max@example.com", address_instance.generate_random_address())
-        new_student2 = Student("john", "max@example.com", address_instance.generate_random_address())
+        new_student2 = Student("john", "john@example.com", address_instance.generate_random_address())
 
         class_info = [class1, class2]
         
         def add_student_to_class(class_obj, student):
-          if student not in class_obj.students:
-             class_obj.add_student(student)
-          else:
-           print(f"{student.name} is already in {class_obj.name}")
+            if student not in class_obj.students:
+                class_obj.add_student(student)
+            else:
+                print(f"{student.name} is already in {class_obj.name}")
 
         def add_teacher_to_class(class_obj, teacher):
-          if teacher not in class_obj.teachers:
-             class_obj.add_teacher(teacher)
+            if teacher not in class_obj.teachers:
+                class_obj.add_teacher(teacher)
           
         add_teacher_to_class(class1, math_teacher)
         add_teacher_to_class(class1, physics_teacher)
         add_teacher_to_class(class2, english_teacher)
         add_student_to_class(class1, new_student1)
         add_student_to_class(class2, new_student2)
-        
 
         return class_info
     
@@ -68,5 +65,5 @@ class school_class_list:
         
     
 
-school_class_instance = school_class_list()
+school_class_instance = SchoolClassList()
 school_class_instance.school_class_list()

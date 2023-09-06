@@ -1,5 +1,7 @@
 from Discipline_class import Discipline
-from Exam_question_class import exam_question
+from Exam_question_class import ExamQuestion
+
+
 class English(Discipline):
 
     def __init__(self, name):
@@ -15,12 +17,12 @@ class English(Discipline):
 
     
     def conduct_exams(self):
-        exam1_english = exam_question()
+        exam1_english = ExamQuestion()
         exam1_english.ask_question(self.name, "What is the simple past of go?")
         exam1_english.ask_question(self.name, "What is the simple past of make")
         exam1_english.ask_question(self.name, "What is the simple past of leave")
 
-        exam2_english = exam_question()
+        exam2_english = ExamQuestion()
         exam2_english.ask_question(self.name, "What is the opposite of the word of happy? ")
         exam2_english.ask_question(self.name, "What is the plural form of the word book ?")
         exam2_english.ask_question(self.name, "What is the past tense of the verb eat ?")

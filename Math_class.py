@@ -1,5 +1,6 @@
 from Discipline_class import Discipline
-from Exam_question_class import exam_question
+from Exam_question_class import ExamQuestion
+
 
 class Math(Discipline):
 
@@ -15,17 +16,17 @@ class Math(Discipline):
    
     
     def conduct_exams(self):
-        exam1_math = exam_question()
+        exam1_math = ExamQuestion()
         exam1_math.ask_question(self.name, "What is 2+3?")
         exam1_math.ask_question(self.name, "What is 5+5?")
         exam1_math.ask_question(self.name, "What is 100+3?")
 
-        exam2_math = exam_question()
+        exam2_math = ExamQuestion()
         exam2_math.ask_question(self.name, "What is 345+3?")
         exam2_math.ask_question(self.name, "What is 563+5?")
         exam2_math.ask_question(self.name, "What is 1002+3?")
 
-        exam3_math = exam_question()
+        exam3_math = ExamQuestion()
         exam3_math.ask_question(self.name, "What is 7+3?")
         exam3_math.ask_question(self.name, "What is 15+5?")
         exam3_math.ask_question(self.name, "What is 200+3?")

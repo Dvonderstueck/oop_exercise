@@ -1,5 +1,7 @@
 
-class adress:
+
+class Adress:
+    
     def __init__(self):
         self.adress_list = []
     
