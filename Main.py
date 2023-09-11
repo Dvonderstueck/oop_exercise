@@ -1,21 +1,17 @@
-from Exam_question_class import ExamQuestion
 import Exam_class
 from Student_class import Student
-from Discipline_class import Discipline
 from Adress_class import Adress
 import sec_class
 from Teacher_class import Teacher
-import Teacher_class
 from Director_class import Director
 from School_class import School
 from classes_class import Classes 
 from class_list import SchoolClassList
-from info_class import Info
 from Math_class import Math
 from English_class import English
 from Physics_class import Physics
-from new_student1_parent_class import Student1ExamPoints
-from new_student2_parent_class import Student2ExamPoints
+from Parent1_read_points import Student1ExamPoints
+from Parent2_read_points import Student2ExamPoints
 
 
 class MainPreparationClass:
@@ -61,7 +57,7 @@ class MainPreparationClass:
                 self.physics_teacher.exam_quest_list_teacher([self.physics_exam_list])
         
             case "4":
-                self.new_student2 = Exam_class.exams_for_student(self.new_student1)
+                self.new_student2 = Exam_class.exams_for_student(self.new_student2)
 
             case "5":
                 self.student1_exam_points = Student1ExamPoints.read_student1_points(self)

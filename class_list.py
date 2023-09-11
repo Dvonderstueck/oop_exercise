@@ -1,4 +1,3 @@
-from School_class import school
 from classes_class import Classes
 from Student_class import Student
 from Teacher_class import Teacher

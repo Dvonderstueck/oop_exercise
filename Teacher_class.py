@@ -2,9 +2,8 @@ from info_class import Info
 from Math_class import Math
 from English_class import English
 from Physics_class import Physics
-from Discipline_class import Discipline
 from Adress_class import Adress
-from Exam_class import ExamQuestion
+
 
 address_instance = Adress()
 

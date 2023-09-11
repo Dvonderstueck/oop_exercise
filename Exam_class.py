@@ -1,9 +1,7 @@
-from Adress_class import Adress
 from Math_class import Math
 from English_class import English
 from Physics_class import Physics
-from Student_class import Student
-from Exam_question_class import ExamQuestion
+
 
 def calculate_and_add_final_grade(student, discipline_instance, exam_results):
     discipline_exam_results = [(name, num, points) for name, num, points in exam_results if name == discipline_instance.name]
@@ -26,8 +24,11 @@ def conduct_single_exam(exam, exam_num, discipline_instance, student_instance, d
         else:
             print("Incorrect. The correct answer is:", correct_answer)
 
-    print(f"Total points earned in this exam: {discipline_point_values[discipline_instance.name]}")
-    return (discipline_instance.name, exam_num, points_earned)
+    if points_earned > 0:
+        print(f"Total points earned in this exam: {points_earned}")
+    
+    return (discipline_instance.name, exam_num, points_earned)  
+
 
 def conduct_exams(student_instance, disciplines, discipline_point_values):
     exam_results = []
