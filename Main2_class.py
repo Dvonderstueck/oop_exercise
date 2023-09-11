@@ -94,3 +94,8 @@ class MainPreparationClass:
             case "11":
                 print("Exiting the program.")
                 return
+            
+
+if __name__ == "__main__":
+    main = MainPreparationClass()
+    main.run()
