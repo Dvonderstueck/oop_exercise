@@ -4,6 +4,16 @@ from Par_class import ParExamGrade
 class Student2Par(ParExamGrade):
 
     def read_file(self, filename):
+        """
+        Read and return the contents of a file.
+
+        Para:
+            filename (str): The name of the file to be read.
+
+        Returns:
+            str: The contents of the file.
+
+        """
         with open(filename, "r") as f:
             return f.read()
 
@@ -13,6 +23,16 @@ class Student2ExamPoints:
 
     @staticmethod
     def read_exam_data(exam_names):
+        """
+        Read exam data from files for a given list of exam names.
+
+        Para:
+            exam_names (list): A list of exam names.
+
+        Returns:
+            dict: A dictionary where keys are exam names and values are exam data.
+
+        """
         exam_data = {}
         
         for exam_name in exam_names:
@@ -22,6 +42,10 @@ class Student2ExamPoints:
         return exam_data
     
     def read_student2_points(self):
+        """
+        Read exam points for Student2 from various exams.
+
+        """
         self.student2_exam_points1 = Student2ExamPoints.math_exam_data
         self.student2_exam_points2 = Student2ExamPoints.english_exam_data
         self.student2_exam_points3 = Student2ExamPoints.physics_exam_data

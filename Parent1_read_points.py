@@ -2,8 +2,45 @@ from Par_class import ParExamGrade
 
 
 class Student1Par(ParExamGrade):
+    """
+    A class for the parent of student2 
+
+    Attributes:
+        exam_names_math (list): A list of exam names related to Mathematics.
+        exam_names_english (list): A list of exam names related to English.
+        exam_names_physics (list): A list of exam names related to Physics.
+        math_exam_data (dict): A dictionary where keys are exam names, and values are exam data for Mathematics.
+        english_exam_data (dict): A dictionary where keys are exam names, and values are exam data for English.
+        physics_exam_data (dict): A dictionary where keys are exam names, and values are exam data for Physics.
+
+
+    Methods:
+    def read_file(self, filename)
+        Read and return the contents of a file.
+
+    @staticmethod
+    def read_exam_data(exam_names):
+        Read exam data from files for a given list of exam names.
+
+    def read_student2_points(self):
+        Read exam points for Student2 from various exams.
+
+    
+
+
+    """
 
     def read_file(self, filename):
+        """
+        Read and return the contents of a file.
+
+        Para:
+            filename (str): The name of the file to be read.
+
+        Returns:
+            str: The contents of the file.
+
+        """
         with open(filename, "r") as f:
             return f.read()
 
@@ -14,6 +51,16 @@ class Student1ExamPoints:
 
     @staticmethod
     def read_exam_data(exam_names):
+        """
+        Read exam data from files for a given list of exam names.
+
+        Para:
+            exam_names (list): A list of exam names.
+
+        Returns:
+            dict: A dictionary where keys are exam names and values are exam data.
+
+        """
         exam_data = {}
         
         for exam_name in exam_names:
@@ -23,6 +70,10 @@ class Student1ExamPoints:
         return exam_data
     
     def read_student1_points(self):
+        """
+        Read exam points for Student1 from various exams.
+
+        """
         self.student1_exam_points1 = Student1ExamPoints.math_exam_data
         self.student1_exam_points2 = Student1ExamPoints.english_exam_data
         self.student1_exam_points3 = Student1ExamPoints.physics_exam_data

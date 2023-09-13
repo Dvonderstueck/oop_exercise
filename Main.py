@@ -15,8 +15,16 @@ from Parent2_read_points import Student2ExamPoints
 
 
 class MainPreparationClass:
+    """
+    The starting point of the code. Here you can do diffrent actions by doing a user input.
+    choice = input("What action would you like to perform?\n 1: Print students and teachers,\n 2: Print classes,\n 3: exam questions,\n 4: Run exam,\n 5: exam points student 1,\n 6: exam points student 2,\n 7: List of teachers with their disciplines,\n 8: Director permission,\n 9: Student1 full info,\n 10: Run exam where secretary gets the grade for students,\n 11: Exit: ")
+    """
     
     def __init__(self):
+        """
+        Initialize the MainPreparationClass with necessary objects and data.
+
+        """
         self.address_instance = Adress()
         self.school = School("Europa Schule köln")
         self.math_teacher = Teacher("Lukas", "Lukas@school.com", self.address_instance.generate_random_address())
@@ -37,6 +45,10 @@ class MainPreparationClass:
      
 
     def run(self):
+        """
+        Run the main program and perform various actions based on user input.
+
+        """
         choice = input("What action would you like to perform?\n 1: Print students and teachers,\n 2: Print classes,\n 3: exam questions,\n 4: Run exam,\n 5: exam points student 1,\n 6: exam points student 2,\n 7: List of teachers with their disciplines,\n 8: Director permission,\n 9: Student1 full info,\n 10: Run exam where secretary gets the grade for students,\n 11: Exit: ")
 
         match choice:

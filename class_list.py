@@ -5,6 +5,17 @@ from Adress_class import Adress
 from Discipline_class import Discipline
 
 class SchoolClassList:
+    """
+    A class for managing school classes, disciplines, teachers, and students.
+
+    Methods:
+        school_class_list(self):
+            Create and populate school classes, disciplines, teachers, and students.
+
+        get_class_info(self, class_obj):
+            Get information about a specific school class.
+
+    """
 
     def school_class_list(self):
 
@@ -48,6 +59,16 @@ class SchoolClassList:
         return class_info
     
     def get_class_info(self, class_obj):
+        """
+        Get information about a specific school class.
+
+        Args:
+            class_obj (Classes): The school class object for which information is requested.
+
+        Returns:
+            str: Information about the school class, including its name, disciplines, teachers, and students.
+
+        """
         class_info = f"Class: {class_obj.name}\n"
         class_info += f"Disciplines: {', '.join(class_obj.disciplines)}\n\n"
         

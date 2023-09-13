@@ -1,14 +1,45 @@
-# Import necessary class from corresponding module
 from info_class import Info
 
-# Define a Student class that inherits from the Info class
+
 class Student(Info):
+    """
+    A class of a Student of a school
+
+    Attributes:
+        name (str): The name of the student.
+        email (str): The email address of the student.
+        address (str): The address of the student.
+        student_grades (dict): A dictionary to store the student's grades for different disciplines.
+        assigned_classes (list): A list to store the classes assigned to the student.
+
+    Methods:
+        add_grade(self, discipline, grade):
+        Add a grade for a specific discipline to the student's record.
+
+        @staticmethod
+        get_input(question):
+        Get user input.
+
+        get_final_grade(self, discipline_name):
+        Get the final grade for a specific discipline.
+
+        add_final_grade(self, discipline_name, final_grade):
+        Add a final grade for a specific discipline to the student's record.
+
+        get_exam_grades(self, discipline_name):
+        Get the exam grades for a specific discipline.
+
+        save_points_to_file(self, discipline, exam_name):
+        Save the student's points for a specific discipline and exam to a file.
+
+
+    """
 
     def __init__(self, name, email, address):
         """
         Initialize a Student object.
 
-        Args:
+        Para:
             name (str): The name of the student.
             email (str): The email address of the student.
             address (str): The address of the student.
@@ -26,7 +57,7 @@ class Student(Info):
         """
         Add a grade for a specific discipline to the student's record.
 
-        Args:
+        Para:
             discipline (str): The name of the discipline.
             grade (float): The grade received for the discipline.
 
@@ -38,7 +69,7 @@ class Student(Info):
         """
         Get user input.
 
-        Args:
+        Para:
             question (str): The question to display to the user.
 
         Returns:
@@ -51,7 +82,7 @@ class Student(Info):
         """
         Get the final grade for a specific discipline.
 
-        Args:
+        Para:
             discipline_name (str): The name of the discipline.
 
         Returns:
@@ -75,7 +106,7 @@ class Student(Info):
         """
         Get the exam grades for a specific discipline.
 
-        Args:
+        Para:
             discipline_name (str): The name of the discipline.
 
         Returns:
@@ -88,7 +119,7 @@ class Student(Info):
         """
         Save the student's points for a specific discipline and exam to a file.
 
-        Args:
+        Para:
             discipline (str): The name of the discipline.
             exam_name (str): The name of the exam.
 
@@ -102,4 +133,3 @@ class Student(Info):
 
         print(f"Total points for {discipline} in {exam_name} have been updated and saved to {file_path}")
 
-    print(save_points_to_file.__doc__)
