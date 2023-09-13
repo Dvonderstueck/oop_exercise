@@ -2,6 +2,33 @@ from Par_class import ParExamGrade
 
 
 class Student2Par(ParExamGrade):
+    """
+    A class for the parent of student2 
+
+    Attributes:
+        exam_names_math (list): A list of exam names related to Mathematics.
+        exam_names_english (list): A list of exam names related to English.
+        exam_names_physics (list): A list of exam names related to Physics.
+        math_exam_data (dict): A dictionary where keys are exam names(These keys are used to access the corresponding exam data.), and values are exam data for Mathematics.
+        english_exam_data (dict): A dictionary where keys are exam names(These keys are used to access the corresponding exam data.), and values are exam data for English.
+        physics_exam_data (dict): A dictionary where keys are exam names(These keys are used to access the corresponding exam data.), and values are exam data for Physics.
+
+
+    Methods:
+    read_file(self, filename)
+        Read and return the contents of a file.
+
+    @staticmethod
+    read_exam_data(exam_names):
+        Read exam data from files for a given list of exam names.
+
+    read_student2_points(self):
+        Read exam points for Student2 from various exams.
+
+    
+
+
+    """
 
     def read_file(self, filename):
         """

@@ -9,21 +9,21 @@ class Student1Par(ParExamGrade):
         exam_names_math (list): A list of exam names related to Mathematics.
         exam_names_english (list): A list of exam names related to English.
         exam_names_physics (list): A list of exam names related to Physics.
-        math_exam_data (dict): A dictionary where keys are exam names, and values are exam data for Mathematics.
-        english_exam_data (dict): A dictionary where keys are exam names, and values are exam data for English.
-        physics_exam_data (dict): A dictionary where keys are exam names, and values are exam data for Physics.
+        math_exam_data (dict): A dictionary where keys are exam names(These keys are used to access the corresponding exam data.), and values are exam data for Mathematics.
+        english_exam_data (dict): A dictionary where keys are exam names(These keys are used to access the corresponding exam data.), and values are exam data for English.
+        physics_exam_data (dict): A dictionary where keys are exam names(These keys are used to access the corresponding exam data.), and values are exam data for Physics.
 
 
     Methods:
-    def read_file(self, filename)
+    read_file(self, filename)
         Read and return the contents of a file.
 
     @staticmethod
-    def read_exam_data(exam_names):
+    read_exam_data(exam_names):
         Read exam data from files for a given list of exam names.
 
-    def read_student2_points(self):
-        Read exam points for Student2 from various exams.
+    read_student1_points(self):
+        Read exam points for Student1 from various exams.
 
     
 
