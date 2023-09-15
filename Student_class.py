@@ -1,9 +1,9 @@
 from info_class import Info
-
+import Parent_read_points
 
 class Student(Info):
     """
-    A class of a Student of a school
+    A class representing a student in a school.
 
     Attributes:
         name (str): The name of the student.
@@ -32,6 +32,8 @@ class Student(Info):
         save_points_to_file(self, discipline, exam_name):
         Save the student's points for a specific discipline and exam to a file.
 
+        read_exam_data(self, exam_names):
+        Read exam data from files for a given list of exam names for this student.
 
     """
 
@@ -95,7 +97,7 @@ class Student(Info):
         """
         Add a final grade for a specific discipline to the student's record.
 
-        Args:
+        Para:
             discipline_name (str): The name of the discipline.
             final_grade (float): The final grade for the discipline.
 
@@ -133,3 +135,28 @@ class Student(Info):
 
         print(f"Total points for {discipline} in {exam_name} have been updated and saved to {file_path}")
 
+    def read_exam_data(self, exam_names):
+        """
+        Read exam data from files for a given list of exam names for this student.
+
+        Para:
+            exam_names (list): A list of exam names.
+
+        Returns:
+            dict: A dictionary where keys are exam names and values are exam data.
+        """
+        student_file_mapping = {
+            'Max': 'max',
+            'John': 'john',
+            # Add more students here with their corresponding file prefixes
+        }
+
+        student_name = self.name
+        # Check if the student's name is in the mapping, default to 'john' if not found
+        student_prefix = student_file_mapping.get(student_name, 'john')
+
+        exam_data = {}
+        for exam_name in exam_names:
+            data = Parent_read_points.read_file(f"{student_prefix}_{exam_name}_saved_points.txt")
+            exam_data[exam_name] = data
+        return exam_data

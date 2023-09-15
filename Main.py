@@ -72,12 +72,15 @@ class MainPreparationClass:
                 self.new_student2 = Exam_class.exams_for_student(self.new_student2)
 
             case "5":
-                self.student1_exam_points = Parent_read_points.read_student1_points()
+                exam_names_student1 = ["Mathematics_exam1", "Mathematics_exam2", "Mathematics_exam3", "english_exam1", "english_exam2", "Physics_exam1", "Physics_exam2", "Physics_exam3"]
+                self.student1_exam_points = self.new_student1.read_exam_data(exam_names_student1)
                 print(self.student1_exam_points, "\n")
 
             case "6":
-                self.student2_exam_points = Parent_read_points.read_student2_points()
+                exam_names_student2 = ["Mathematics_exam1", "Mathematics_exam2", "Mathematics_exam3", "english_exam1", "english_exam2", "Physics_exam1", "Physics_exam2", "Physics_exam3"]
+                self.student2_exam_points = self.new_student2.read_exam_data(exam_names_student2)
                 print(self.student2_exam_points, "\n")
+
 
             case "7":
                 teachers = [self.math_teacher, self.english_teacher, self.physics_teacher]
