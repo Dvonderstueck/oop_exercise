@@ -51,5 +51,5 @@ class ParExamGrade(ABC):
         """
         pass
 
-new_student1_parent = Parent("Lena", "Lena@gmail.com", "Boissereestraße 3, 50674 Köln")
-new_student2_parent = Parent("Wolfgang", "Wolfgang@web.de", "Boissereestraße 4, 50674 Köln")
+new_student1_parent = Parent("Lena", "Lena@gmail.com", "Boissereestraße 13, 50674 Köln")
+new_student2_parent = Parent("Wolfgang", "Wolfgang@web.de", "Boissereestraße 14, 50674 Köln")

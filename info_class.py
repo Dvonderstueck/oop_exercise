@@ -1,11 +1,11 @@
-from Adress_class import Adress
+
 
 
 class Info:
     """
     A class for representing basic information about a person.
 
-    Para:
+     Attributes:
         name (str): The name of the person.
         email (str): The email address of the person.
         address (str): The address of the person.
@@ -40,6 +40,5 @@ class Info:
          return f"Name: {self.name}\nEmail: {self.email}\nAddress: {self.address}"
 
 
-address_instance = Adress()
 
 

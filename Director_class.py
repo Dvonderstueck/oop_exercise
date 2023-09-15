@@ -1,6 +1,7 @@
 from info_class import Info
 
 
+
 class Director(Info):
     """
     A class for representing a school director.
@@ -102,6 +103,8 @@ class Director(Info):
 
          """
         return f"Name: {self.name}\nEmail: {self.email}\nAddress: {self.address}\nSchool: {self.school_name}"
+    
+
 
     
     

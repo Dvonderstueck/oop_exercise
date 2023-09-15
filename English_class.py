@@ -11,16 +11,16 @@ class English(Discipline):
 
 
     Methods:
-        def calculate_final_grade(self, exam1_points, exam2_points, exam3_points):
+        calculate_final_grade(self, exam1_points, exam2_points, exam3_points):
         Add a way to calculate the finla grade for English
 
-        def ask_question(self, discipline, question_text):
+        ask_question(self, discipline, question_text):
         Add a question to a exam list
 
-        def get_correct_answer(self, index):
+        get_correct_answer(self, index):
         Get the correct answer for a question at a specified index.
 
-        def conduct_exams(self):
+        conduct_exams(self):
         Create and return three sets of exam questions for English.
 
     """

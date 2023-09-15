@@ -11,10 +11,10 @@ class Secretary(Info):
         address (str): The address of the secretary.
 
     Methods:    
-        def get_final_grade_secretary(self, student, discipline_name):
+        get_final_grade_secretary(self, student, discipline_name):
         Get the final grade for a specific discipline of a student via the secretary.
 
-        def print_final_grade_via_secretary(self):
+        print_final_grade_via_secretary(self):
         Print the final grades for different disciplines of a student via the secretary.
 
 

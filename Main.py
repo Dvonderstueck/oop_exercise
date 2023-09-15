@@ -1,6 +1,5 @@
 import Exam_class
 from Student_class import Student
-from Adress_class import Adress
 import sec_class
 from Teacher_class import Teacher
 from Director_class import Director
@@ -10,8 +9,9 @@ from class_list import SchoolClassList
 from Math_class import Math
 from English_class import English
 from Physics_class import Physics
-from Parent1_read_points import Student1ExamPoints
-from Parent2_read_points import Student2ExamPoints
+import Parent_read_points
+from Adress_class import Address
+
 
 
 class MainPreparationClass:
@@ -25,15 +25,15 @@ class MainPreparationClass:
         Initialize the MainPreparationClass with necessary objects and data.
 
         """
-        self.address_instance = Adress()
-        self.school = School("Europa Schule köln")
-        self.math_teacher = Teacher("Lukas", "Lukas@school.com", self.address_instance.generate_random_address())
-        self.english_teacher = Teacher("Nina", "Nina@school.com", self.address_instance.generate_random_address())
-        self.physics_teacher = Teacher("Tommy", "Tommy@school.com", self.address_instance.generate_random_address())
-        self.school_secretary = sec_class.Secretary("Jenny", "secretary@school.com", self.address_instance.generate_random_address())
-        self.new_student1 = Student("Max", "max@example.com", self.address_instance.generate_random_address())
-        self.new_student2 = Student("john", "max@example.com", self.address_instance.generate_random_address())
-        self.director1 = Director("Schmidt", "Schmidt@school.com", self.address_instance.generate_random_address(), self.school)
+        self.school = School("Europa Schule Köln")
+        self.math_teacher = Teacher("Lukas", "Lukas@school.com", Address.generate_random_address())
+        self.english_teacher = Teacher("Nina", "Nina@school.com", Address.generate_random_address())
+        self.physics_teacher = Teacher("Tommy", "Tommy@school.com", Address.generate_random_address())
+        self.school_secretary = sec_class.Secretary("Jenny", "secretary@school.com", Address.generate_random_address())
+        self.new_student1 = Student("Max", "max@example.com", Address.generate_random_address())
+        self.new_student2 = Student("john", "max@example.com", Address.generate_random_address())
+        self.director1 = Director("Schmidt", "Schmidt@school.com", Address.generate_random_address(), self.school)
+
 
         self.math_exam_list = Math("Mathematics")
         self.english_exam_list = English("English")
@@ -72,13 +72,12 @@ class MainPreparationClass:
                 self.new_student2 = Exam_class.exams_for_student(self.new_student2)
 
             case "5":
-                self.student1_exam_points = Student1ExamPoints.read_student1_points(self)
-                print(self.student1_exam_points1, "\n", self.student1_exam_points2, "\n", self.student1_exam_points3, "\n")
+                self.student1_exam_points = Parent_read_points.read_student1_points()
+                print(self.student1_exam_points, "\n")
 
             case "6":
-                self.student2_exam_points = Student2ExamPoints.read_student2_points(self)
-                print(self.student2_exam_points1, "\n", self.student2_exam_points2, "\n", self.student2_exam_points3, "\n")
-
+                self.student2_exam_points = Parent_read_points.read_student2_points()
+                print(self.student2_exam_points, "\n")
 
             case "7":
                 teachers = [self.math_teacher, self.english_teacher, self.physics_teacher]

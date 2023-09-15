@@ -4,11 +4,6 @@ from Discipline_class import Discipline
 from Teacher_class import Teacher
 from Director_class import Director
 import sec_class
-from Adress_class import Adress
-
-
-address_instance = Adress()
-
 
 class School:
     """
@@ -59,7 +54,6 @@ class School:
 
         """
         self.name = name
-        self.adress = address_instance
         self.students = []
         self.teachers = []
         self.directors = []

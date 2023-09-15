@@ -2,10 +2,7 @@ from info_class import Info
 from Math_class import Math
 from English_class import English
 from Physics_class import Physics
-from Adress_class import Adress
-
-
-address_instance = Adress()
+from Adress_class import Address
 
 
 math_exam_list = Math("Mathematics")  
@@ -89,9 +86,9 @@ class Teacher(Info):
             print(discipline.name)
 
 
-math_teacher = Teacher("Lukas", "Lukas@school.com", address_instance.generate_random_address())
-english_teacher = Teacher("Nina", "Nina@school.com", address_instance.generate_random_address())
-physics_teacher = Teacher("Tommy", "Tommy@school.com", address_instance.generate_random_address())
+math_teacher = Teacher("Lukas", "Lukas@school.com", Address.generate_random_address())
+english_teacher = Teacher("Nina", "Nina@school.com", Address.generate_random_address())
+physics_teacher = Teacher("Tommy", "Tommy@school.com", Address.generate_random_address())
 
 
 math_teacher.teach_discipline(math_exam_list, physics_exam_list)
