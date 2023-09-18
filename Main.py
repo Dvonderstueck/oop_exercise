@@ -33,6 +33,7 @@ class MainPreparationClass:
         self.new_student1 = Student("Max", "max@example.com", Address.generate_random_address())
         self.new_student2 = Student("john", "max@example.com", Address.generate_random_address())
         self.director1 = Director("Schmidt", "Schmidt@school.com", Address.generate_random_address(), self.school)
+        self.exam_names_ = ["Mathematics_exam1", "Mathematics_exam2", "Mathematics_exam3", "english_exam1", "english_exam2", "Physics_exam1", "Physics_exam2", "Physics_exam3"]
 
 
         self.math_exam_list = Math("Mathematics")
@@ -72,14 +73,16 @@ class MainPreparationClass:
                 self.new_student2 = Exam_class.exams_for_student(self.new_student2)
 
             case "5":
-                exam_names_student1 = ["Mathematics_exam1", "Mathematics_exam2", "Mathematics_exam3", "english_exam1", "english_exam2", "Physics_exam1", "Physics_exam2", "Physics_exam3"]
-                self.student1_exam_points = self.new_student1.read_exam_data(exam_names_student1)
-                print(self.student1_exam_points, "\n")
+                self.new_student1.read_exam_data(self.exam_names_)  
+                print(f"Exam data for {self.new_student1.name}:\n")
+                for exam_name, data in self.new_student1.exam_data.items():
+                    print(f"{exam_name}: {data}\n")
 
             case "6":
-                exam_names_student2 = ["Mathematics_exam1", "Mathematics_exam2", "Mathematics_exam3", "english_exam1", "english_exam2", "Physics_exam1", "Physics_exam2", "Physics_exam3"]
-                self.student2_exam_points = self.new_student2.read_exam_data(exam_names_student2)
-                print(self.student2_exam_points, "\n")
+                print(f"Exam data for {self.new_student2.name}:\n")
+                self.new_student2.read_exam_data(self.exam_names_) 
+                for exam_name, data in self.new_student2.exam_data.items():
+                    print(f"{exam_name}: {data}\n")
 
 
             case "7":

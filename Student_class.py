@@ -11,30 +11,30 @@ class Student(Info):
         address (str): The address of the student.
         student_grades (dict): A dictionary to store the student's grades for different disciplines.
         assigned_classes (list): A list to store the classes assigned to the student.
+        exam_data (dict): A dictionary to store the student's exam data for different exams.
 
     Methods:
         add_grade(self, discipline, grade):
-        Add a grade for a specific discipline to the student's record.
-
-        @staticmethod
+            Add a grade for a specific discipline to the student's record.
+            
         get_input(question):
-        Get user input.
-
+            Get user input.
+            
         get_final_grade(self, discipline_name):
-        Get the final grade for a specific discipline.
-
+            Get the final grade for a specific discipline.
+            
         add_final_grade(self, discipline_name, final_grade):
-        Add a final grade for a specific discipline to the student's record.
-
+            Add a final grade for a specific discipline to the student's record.
+            
         get_exam_grades(self, discipline_name):
-        Get the exam grades for a specific discipline.
-
+            Get the exam grades for a specific discipline.
+            
         save_points_to_file(self, discipline, exam_name):
-        Save the student's points for a specific discipline and exam to a file.
-
+            Save the student's points for a specific discipline and exam to a file.
+            
         read_exam_data(self, exam_names):
-        Read exam data from files for a given list of exam names for this student.
-
+            Read exam data from files for a given list of exam names for this student.
+    
     """
 
     def __init__(self, name, email, address):
@@ -49,11 +49,13 @@ class Student(Info):
         Attributes:
             student_grades (dict): A dictionary to store the student's grades for different disciplines.
             assigned_classes (list): A list to store the classes assigned to the student.
+            exam_data (dict): A dictionary to store the student's exam data for different exams.
 
         """
         super().__init__(name, email, address)
         self.student_grades = {}
         self.assigned_classes = []
+        self.exam_data = {}  
 
     def add_grade(self, discipline, grade):
         """
@@ -135,28 +137,18 @@ class Student(Info):
 
         print(f"Total points for {discipline} in {exam_name} have been updated and saved to {file_path}")
 
-    def read_exam_data(self, exam_names):
+    def read_exam_data(self, exam_names,):
         """
-        Read exam data from files for a given list of exam names for this student.
+    Read exam data from files for a given list of exam names for this student.
 
-        Para:
-            exam_names (list): A list of exam names.
+    Para:
+        exam_names (list of str): A list of exam names.
 
-        Returns:
-            dict: A dictionary where keys are exam names and values are exam data.
-        """
-        student_file_mapping = {
-            'Max': 'max',
-            'John': 'john',
-            # Add more students here with their corresponding file prefixes
-        }
+    Returns:
+        dict: A dictionary where keys are exam names and values are exam data.
+    """
 
-        student_name = self.name
-        # Check if the student's name is in the mapping, default to 'john' if not found
-        student_prefix = student_file_mapping.get(student_name, 'john')
-
-        exam_data = {}
         for exam_name in exam_names:
-            data = Parent_read_points.read_file(f"{student_prefix}_{exam_name}_saved_points.txt")
-            exam_data[exam_name] = data
-        return exam_data
+            student_name_lower = self.name.lower()
+            data = Parent_read_points.read_file(filename=f"{student_name_lower}_{exam_name}_saved_points.txt")
+            self.exam_data[exam_name] = data

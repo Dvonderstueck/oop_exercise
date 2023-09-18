@@ -3,6 +3,7 @@ from Student_class import Student
 from Teacher_class import Teacher
 from Adress_class import Address
 from Discipline_class import Discipline
+import random
 
 class SchoolClassList:
     """
