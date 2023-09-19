@@ -29,7 +29,7 @@ class Director(Info):
 
     assigned_schools = {}
 
-    def __init__(self, name, email, address, school_name):
+    def __init__(self, name, email, address, school):
         """
         Initialize a Director object with name, email, address, and school assignment.
 
@@ -41,13 +41,18 @@ class Director(Info):
 
         """
         super().__init__(name, email, address)
-        if school_name in Director.assigned_schools:
-            raise ValueError(f"{school_name} already has a director.")
-        self.school_name = school_name
-        Director.assigned_schools[school_name] = self
+        self.school_name = school
+        if school in Director.assigned_schools:
+            raise ValueError(f"{school} already has a director.")
+
+     
+
+
+        Director.assigned_schools[school] = self
         self.school_assigned = False
         self.can_do_everything = True
         self.taught_disciplines = []
+
 
     def teach_discipline(self, discipline1, discipline2, discipline3):
         """
@@ -103,6 +108,9 @@ class Director(Info):
 
          """
         return f"Name: {self.name}\nEmail: {self.email}\nAddress: {self.address}\nSchool: {self.school_name}"
+    
+
+
     
 
 

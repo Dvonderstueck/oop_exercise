@@ -25,14 +25,19 @@ class MainPreparationClass:
         Initialize the MainPreparationClass with necessary objects and data.
 
         """
-        self.school = School("Europa Schule Köln")
+        school = School("Europa Schule Köln")
         self.math_teacher = Teacher("Lukas", "Lukas@school.com", Address.generate_random_address())
         self.english_teacher = Teacher("Nina", "Nina@school.com", Address.generate_random_address())
         self.physics_teacher = Teacher("Tommy", "Tommy@school.com", Address.generate_random_address())
         self.school_secretary = sec_class.Secretary("Jenny", "secretary@school.com", Address.generate_random_address())
         self.new_student1 = Student("Max", "max@example.com", Address.generate_random_address())
         self.new_student2 = Student("john", "max@example.com", Address.generate_random_address())
-        self.director1 = Director("Schmidt", "Schmidt@school.com", Address.generate_random_address(), self.school)
+ 
+        try:
+            self.director1 = Director("Schmidt", "Schmidt@school.com", Address.generate_random_address(), school)
+        except ValueError as e:
+            print(f"Error: {e}")
+
         self.exam_names_ = ["Mathematics_exam1", "Mathematics_exam2", "Mathematics_exam3", "english_exam1", "english_exam2", "Physics_exam1", "Physics_exam2", "Physics_exam3"]
 
 
@@ -51,7 +56,7 @@ class MainPreparationClass:
 
         """
         choice = input("What action would you like to perform?\n 1: Print students and teachers,\n 2: Print classes,\n 3: exam questions,\n 4: Run exam,\n 5: exam points student 1,\n 6: exam points student 2,\n 7: List of teachers with their disciplines,\n 8: Director permission,\n 9: Student1 full info,\n 10: Run exam where secretary gets the grade for students,\n 11: Exit: ")
-
+    
         match choice:
             case "1":
                 self.person_list = Classes.teachers_and_students(self)
