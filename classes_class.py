@@ -1,5 +1,3 @@
-
-
 class Classes:
     """
     A class for representing school classes.
@@ -10,29 +8,6 @@ class Classes:
         students (list): A list of students in the class.
         teachers (list): A list of teachers in the class.
         directors (list): A list of directors associated with the class.
-
-    Methods:
-        __init__(self, name):
-            Initialize a Classes object with a name.
-
-        add_discipline(self, discipline):
-            Add a discipline to the class.
-
-        list_disciplines(self):
-            List the disciplines taught in the class.
-
-        add_student(self, student):
-            Add a student to the class.
-
-        add_teacher(self, teacher):
-            Add a teacher to the class.
-
-        print_students_teachers_and_director(self):
-            Print the list of students, teachers, and directors in the class.
-
-        teachers_and_students(self):
-            Add teachers and students (and Director) to the class.
-
     """
 
     def __init__(self, name):
@@ -48,7 +23,6 @@ class Classes:
         self.students = []
         self.teachers = []
         self.directors = []
-        
 
     def add_discipline(self, discipline):
         """
@@ -90,34 +64,32 @@ class Classes:
         """
         self.teachers.append(teacher)
 
-    def print_students_teachers_and_director(self):
+    @staticmethod
+    def print_students_teachers_and_director(school, math_teacher, english_teacher, physics_teacher, director1, new_student1, new_student2):
         """
         Print the list of students, teachers, and directors in the class.
 
         """
         print("List of Students:")
-        for student in self.school.students:
+        for student in school.students:
             print(student.name)
 
         print("\nList of Teachers:")
-        for teacher in self.school.teachers:
+        for teacher in school.teachers:
             print(teacher.name)
 
         print("\nDirector:")
-        for director in self.school.directors:
-            print(director.name)
-
-    def teachers_and_students(self):
+        print(director1.name)
+            
+    @staticmethod
+    def teachers_and_students(school, math_teacher, english_teacher, physics_teacher, director1, new_student1, new_student2):
         """
         Add teachers and students (and Director) to the class.
 
         """
-
-        self.school.add_teacher(self.math_teacher)
-        self.school.add_teacher(self.english_teacher)
-        self.school.add_teacher(self.physics_teacher)
-        self.school.add_Director(self.director1)
-        self.school.add_student(self.new_student1)
-        self.school.add_student(self.new_student2)
-    
-  
+        school.add_teacher(math_teacher)
+        school.add_teacher(english_teacher)
+        school.add_teacher(physics_teacher)
+        school.add_director(director1)
+        school.add_student(new_student1)
+        school.add_student(new_student2)

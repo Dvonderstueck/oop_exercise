@@ -12,19 +12,8 @@ from Physics_class import Physics
 import Parent_read_points
 from Adress_class import Address
 
-
-
 class MainPreparationClass:
-    """
-    The starting point of the code. Here you can do diffrent actions by doing a user input.
-    choice = input("What action would you like to perform?\n 1: Print students and teachers,\n 2: Print classes,\n 3: exam questions,\n 4: Run exam,\n 5: exam points student 1,\n 6: exam points student 2,\n 7: List of teachers with their disciplines,\n 8: Director permission,\n 9: Student1 full info,\n 10: Run exam where secretary gets the grade for students,\n 11: Exit: ")
-    """
-    
     def __init__(self):
-        """
-        Initialize the MainPreparationClass with necessary objects and data.
-
-        """
         self.school = School("Europa Schule Köln")
         self.math_teacher = Teacher("Lukas", "Lukas@school.com", Address.generate_random_address())
         self.english_teacher = Teacher("Nina", "Nina@school.com", Address.generate_random_address())
@@ -35,7 +24,6 @@ class MainPreparationClass:
         self.director1 = Director("Schmidt", "Schmidt@school.com", Address.generate_random_address(), self.school)
         self.exam_names_ = ["Mathematics_exam1", "Mathematics_exam2", "Mathematics_exam3", "english_exam1", "english_exam2", "Physics_exam1", "Physics_exam2", "Physics_exam3"]
 
-
         self.math_exam_list = Math("Mathematics")
         self.english_exam_list = English("English")
         self.physics_exam_list = Physics("Physics")
@@ -44,24 +32,20 @@ class MainPreparationClass:
         self.english_teacher.teach_discipline(self.english_exam_list, self.math_exam_list)
         self.physics_teacher.teach_discipline(self.physics_exam_list, self.physics_exam_list)
      
-
     def run(self):
-        """
-        Run the main program and perform various actions based on user input.
-
-        """
         choice = input("What action would you like to perform?\n 1: Print students and teachers,\n 2: Print classes,\n 3: exam questions,\n 4: Run exam,\n 5: exam points student 1,\n 6: exam points student 2,\n 7: List of teachers with their disciplines,\n 8: Director permission,\n 9: Student1 full info,\n 10: Run exam where secretary gets the grade for students,\n 11: Exit: ")
 
         match choice:
             case "1":
-                self.person_list = Classes.teachers_and_students(self)
-                self.person = Classes.print_students_teachers_and_director(self)
+               personlist = Classes.print_students_teachers_and_director(self.school, self.math_teacher, self.english_teacher, self.physics_teacher, self.director1, self.new_student1, self.new_student2)
+               person = Classes.teachers_and_students(self.school, self.math_teacher, self.english_teacher, self.physics_teacher, self.director1, self.new_student1, self.new_student2)
+
             
             case "2":
-                self.school_class_instance = SchoolClassList()
-                class_info = self.school_class_instance.school_class_list()
+                school_class_instance = SchoolClassList()
+                class_info = school_class_instance.school_class_list()
                 for class_obj in class_info:
-                    class_info_str = self.school_class_instance.get_class_info(class_obj)
+                    class_info_str = school_class_instance.get_class_info(class_obj)
                     print(class_info_str)
 
             case "3":
@@ -84,7 +68,6 @@ class MainPreparationClass:
                 for exam_name, data in self.new_student2.exam_data.items():
                     print(f"{exam_name}: {data}\n")
 
-
             case "7":
                 teachers = [self.math_teacher, self.english_teacher, self.physics_teacher]
                 for teacher in teachers:
@@ -95,19 +78,17 @@ class MainPreparationClass:
                     self.director1.teach_discipline(self.math_exam_list, self.english_exam_list, self.physics_exam_list)
                     self.director1.exam_quest_list_teacher(self.math_exam_list, self.english_exam_list, self.physics_exam_list)
                 
-
             case "9":
                 print(self.new_student1.get_full_info())
 
             case "10":
                 self.new_student2 = Exam_class.exams_for_student(self.new_student2)
             
-                self.final_grade_via_secretary = sec_class.Secretary.print_final_grade_via_secretary(self)
+                final_grade_via_secretary = sec_class.Secretary.print_final_grade_via_secretary(self)
 
             case "11":
                 print("Exiting the program.")
                 return
-            
 
 if __name__ == "__main__":
     main = MainPreparationClass()
