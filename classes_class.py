@@ -1,3 +1,4 @@
+from School_class import School
 class Classes:
     """
     A class for representing school classes.
@@ -82,14 +83,14 @@ class Classes:
         print(director1.name)
             
     @staticmethod
-    def teachers_and_students(school, math_teacher, english_teacher, physics_teacher, director1, new_student1, new_student2):
+    def teachers_and_students(math_teacher, english_teacher, physics_teacher, director1, new_student1, new_student2):
         """
         Add teachers and students (and Director) to the class.
 
         """
-        school.add_teacher(math_teacher)
-        school.add_teacher(english_teacher)
-        school.add_teacher(physics_teacher)
-        school.add_director(director1)
-        school.add_student(new_student1)
-        school.add_student(new_student2)
+        School.add_teacher(math_teacher)
+        School.add_teacher(english_teacher)
+        School.add_teacher(physics_teacher)
+        School.add_director(director1)
+        School.add_student(new_student1)
+        School.add_student(new_student2)

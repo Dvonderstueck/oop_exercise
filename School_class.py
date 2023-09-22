@@ -89,7 +89,7 @@ class School:
         """
         self.teachers.append(teacher)
 
-    def add_Director(self, director):
+    def add_director(self, director):
         """
         Add a director to the school.
 
