@@ -1,4 +1,5 @@
 import School_class
+
 class Classes:
     """
     A class for representing school classes.
@@ -17,7 +18,6 @@ class Classes:
 
         Para:
             name (str): The name of the class.
-
         """
         self.name = name
         self.disciplines = []
@@ -31,7 +31,6 @@ class Classes:
 
         Para:
             discipline (Discipline): The discipline to be added.
-
         """
         self.disciplines.append(discipline)
 
@@ -41,7 +40,6 @@ class Classes:
 
         Returns:
             list: A list of disciplines in the class.
-
         """
         return self.disciplines
     
@@ -51,7 +49,6 @@ class Classes:
 
         Para:
             student (Student): The student object to be added.
-
         """
         self.students.append(student)
 
@@ -59,18 +56,18 @@ class Classes:
         """
         Add a teacher to the class.
 
-        Para:
+        Parameters:
             teacher (Teacher): The teacher object to be added.
-
         """
         self.teachers.append(teacher)
 
-### geänder ###
     @staticmethod
     def print_students_teachers_and_director(school):
         """
         Print the list of students, teachers, and directors in the class.
 
+        Para:
+            school (Classes): The school class object.
         """
         print("List of Students:")
         for student in school.students:
@@ -80,21 +77,20 @@ class Classes:
         for teacher in school.teachers:
             print(teacher.name)
 
-        print("\nDirector:")
+        print("\nDirectors:")
         for director in school.directors:
-             print(director.name)
+            print(director.name)
             
     @staticmethod
     def teachers_and_students(school, teachers, director, students):
         """
         Add teachers, director, and students to the class.
 
-        Parameters:
+        Para:
             school (Classes): The school class object to which to add the teachers, director, and students.
             teachers (list): A list of teacher objects to be added.
             director (Director): The director object to be added.
             students (list): A list of student objects to be added.
-
         """
         for teacher in teachers:
             school.add_teacher(teacher)
@@ -103,6 +99,3 @@ class Classes:
         
         for student in students:
             school.add_student(student)
-
-
-# #############################
