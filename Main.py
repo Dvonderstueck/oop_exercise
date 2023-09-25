@@ -37,8 +37,8 @@ class MainPreparationClass:
 
         match choice:
             case "1":
-               personlist = Classes.print_students_teachers_and_director(self.school, self.math_teacher, self.english_teacher, self.physics_teacher, self.director1, self.new_student1, self.new_student2)
                person = Classes.teachers_and_students(self.school, self.math_teacher, self.english_teacher, self.physics_teacher, self.director1, self.new_student1, self.new_student2)
+               personlist = Classes.print_students_teachers_and_director(self.school,self.director1,)
 
             
             case "2":

@@ -1,4 +1,4 @@
-from School_class import School
+import School_class
 class Classes:
     """
     A class for representing school classes.
@@ -65,8 +65,9 @@ class Classes:
         """
         self.teachers.append(teacher)
 
+### geänder ###
     @staticmethod
-    def print_students_teachers_and_director(school, math_teacher, english_teacher, physics_teacher, director1, new_student1, new_student2):
+    def print_students_teachers_and_director(school, director1,):
         """
         Print the list of students, teachers, and directors in the class.
 
@@ -83,14 +84,16 @@ class Classes:
         print(director1.name)
             
     @staticmethod
-    def teachers_and_students(math_teacher, english_teacher, physics_teacher, director1, new_student1, new_student2):
+    def teachers_and_students(school ,math_teacher, english_teacher, physics_teacher, director1, new_student1, new_student2):
         """
         Add teachers and students (and Director) to the class.
 
         """
-        School.add_teacher(math_teacher)
-        School.add_teacher(english_teacher)
-        School.add_teacher(physics_teacher)
-        School.add_director(director1)
-        School.add_student(new_student1)
-        School.add_student(new_student2)
+        school.add_teacher(math_teacher)
+        school.add_teacher(english_teacher)
+        school.add_teacher(physics_teacher)
+        school.add_director(director1)
+        school.add_student(new_student1)
+        school.add_student(new_student2)
+
+# #############################

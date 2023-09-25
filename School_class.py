@@ -112,3 +112,6 @@ class School:
 
 
 school = School("Europa Schule Köln")
+school.add_teacher
+school.add_director
+school.add_student
