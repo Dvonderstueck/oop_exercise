@@ -39,8 +39,8 @@ class MainPreparationClass:
             case "1":
                 teachers = [self.math_teacher, self.english_teacher, self.physics_teacher]
                 students = [self.new_student1, self.new_student2]
-                School.show_teachers_students_director(self.school, teachers, self.director1, students)
-                School.print_students_teachers_and_director(self.school)
+                self.school.add_teachers_students_director(teachers, self.director1, students)
+                self.school.print_students_teachers_and_director()
             
             case "2":
                 school_class_instance = SchoolClassList()

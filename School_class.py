@@ -7,32 +7,37 @@ import sec_class
 
 class School:
     """
-    School
+    School is a class representing a school institution.
 
     Attributes:
         name (str): The name of the school.
-        adress (Adress): An instance of the Address class for the school's address.
+        address (Address): An instance of the Address class for the school's address.
         students (list): A list to store student objects associated with the school.
         teachers (list): A list to store teacher objects associated with the school.
-        directors (list): A list to store director objects associated with the school.
+        director (Director): The director object associated with the school.
         taught_disciplines (list): A list to store the disciplines taught by the school.
-
 
     Methods:
         add_student(self, student):
-        Add a student to the school.   
-        
+        Add a student to the school.
+
         __str__(self):
         Return a string representation of the school's name.
 
         add_teacher(self, teacher):
         Add a teacher to the school.
 
-        add_Director(self, director):
+        add_director(self, director):
         Add a director to the school.
 
         teach_discipline(self, discipline1, discipline2):
         Assign two disciplines to be taught by the school.
+
+        print_students_teachers_and_director(school):
+        Print the list of students, teachers, and the director associated with the school.
+
+        show_teachers_students_director(school, teachers, director, students):
+        Add teachers, director, and students to the school.
 
     """
     
@@ -41,15 +46,15 @@ class School:
         """
         Initialize a School object.
 
-        Para:
+        Parameters:
             name (str): The name of the school.
 
         Attributes:
             name (str): The name of the school.
-            adress (Adress): An instance of the Address class for the school's address.
+            address (Address): An instance of the Address class for the school's address.
             students (list): A list to store student objects associated with the school.
             teachers (list): A list to store teacher objects associated with the school.
-            directors (list): A list to store director objects associated with the school.
+            director (Director): The director object associated with the school.
             taught_disciplines (list): A list to store the disciplines taught by the school.
 
         """
@@ -63,7 +68,7 @@ class School:
         """
         Add a student to the school.
 
-        Para:
+        Parameters:
             student (Student): The student object to be added to the school's student list.
 
         """
@@ -83,7 +88,7 @@ class School:
         """
         Add a teacher to the school.
 
-        Para:
+        Parameters:
             teacher (Teacher): The teacher object to be added to the school's teacher list.
 
         """
@@ -93,7 +98,7 @@ class School:
         """
         Add a director to the school.
 
-        Para:
+        Parameters:
             director (Director): The director object to be added to the school's director list.
 
         """
@@ -103,50 +108,50 @@ class School:
         """
         Assign two disciplines to be taught by the school.
 
-        Para:
+        Parameters:
             discipline1 (Discipline): The first discipline to be taught.
             discipline2 (Discipline): The second discipline to be taught.
 
         """
         self.taught_disciplines.extend([discipline1, discipline2])
 
-     
-    def print_students_teachers_and_director(school):
-        """
-        Print the list of students, teachers, and directors in the class.
 
-        Para:
-            school (Classes): The school class object.
+    def print_students_teachers_and_director(self):
+        """
+        Print the list of students, teachers, and the director associated with the school.
+
+        Parameters:
+            school (School): The school object.
+
         """
         print("List of Students:")
-        for student in school.students:
+        for student in self.students:
             print(student.name)
 
         print("\nList of Teachers:")
-        for teacher in school.teachers:
+        for teacher in self.teachers:
             print(teacher.name)
 
-        print("\nDirectors:")
-        print(school.director.name)
+        print("\nDirector:")
+        print(self.director.name)
             
     
-    def show_teachers_students_director(school, teachers, director, students):
+    
+    def add_teachers_students_director(self, teachers, director, students):
         """
-        Add teachers, director, and students to the class.
+        Add teachers, director, and students to the school.
 
-        Para:
-            school (Classes): The school class object to which to add the teachers, director, and students.
+        Parameters:
+            school (School): The school object to which to add the teachers, director, and students.
             teachers (list): A list of teacher objects to be added.
             director (Director): The director object to be added.
             students (list): A list of student objects to be added.
+
         """
         for teacher in teachers:
-            school.add_teacher(teacher)
+            self.add_teacher(teacher)
         
-        school.add_director(director)
+        self.add_director(director)
         
         for student in students:
-            school.add_student(student)
-
-
-
+            self.add_student(student)
