@@ -56,7 +56,7 @@ class School:
         self.name = name
         self.students = []
         self.teachers = []
-        self.directors = []
+        self.director = None
         self.taught_disciplines = []
 
     def add_student(self, student):
@@ -97,7 +97,7 @@ class School:
             director (Director): The director object to be added to the school's director list.
 
         """
-        self.directors.append(director)
+        self.director = director
 
     def teach_discipline(self, discipline1, discipline2):
         """
@@ -109,6 +109,44 @@ class School:
 
         """
         self.taught_disciplines.extend([discipline1, discipline2])
+
+     
+    def print_students_teachers_and_director(school):
+        """
+        Print the list of students, teachers, and directors in the class.
+
+        Para:
+            school (Classes): The school class object.
+        """
+        print("List of Students:")
+        for student in school.students:
+            print(student.name)
+
+        print("\nList of Teachers:")
+        for teacher in school.teachers:
+            print(teacher.name)
+
+        print("\nDirectors:")
+        print(school.director.name)
+            
+    
+    def show_teachers_students_director(school, teachers, director, students):
+        """
+        Add teachers, director, and students to the class.
+
+        Para:
+            school (Classes): The school class object to which to add the teachers, director, and students.
+            teachers (list): A list of teacher objects to be added.
+            director (Director): The director object to be added.
+            students (list): A list of student objects to be added.
+        """
+        for teacher in teachers:
+            school.add_teacher(teacher)
+        
+        school.add_director(director)
+        
+        for student in students:
+            school.add_student(student)
 
 
 
