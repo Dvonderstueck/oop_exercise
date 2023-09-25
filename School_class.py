@@ -111,7 +111,4 @@ class School:
         self.taught_disciplines.extend([discipline1, discipline2])
 
 
-school = School("Europa Schule Köln")
-school.add_teacher
-school.add_director
-school.add_student
+

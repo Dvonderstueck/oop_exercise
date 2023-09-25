@@ -37,13 +37,15 @@ class MainPreparationClass:
 
         match choice:
             case "1":
-               person = Classes.teachers_and_students(self.school, self.math_teacher, self.english_teacher, self.physics_teacher, self.director1, self.new_student1, self.new_student2)
-               personlist = Classes.print_students_teachers_and_director(self.school,self.director1,)
-
+                teachers = [self.math_teacher, self.english_teacher, self.physics_teacher]
+                students = [self.new_student1, self.new_student2]
+                Classes.teachers_and_students(self.school, teachers, self.director1, students)
+                Classes.print_students_teachers_and_director(self.school)
             
             case "2":
                 school_class_instance = SchoolClassList()
-                class_info = school_class_instance.school_class_list()
+                school_class_instance.create_school_classes()  
+                class_info = school_class_instance.classes  
                 for class_obj in class_info:
                     class_info_str = school_class_instance.get_class_info(class_obj)
                     print(class_info_str)

@@ -67,7 +67,7 @@ class Classes:
 
 ### geänder ###
     @staticmethod
-    def print_students_teachers_and_director(school, director1,):
+    def print_students_teachers_and_director(school):
         """
         Print the list of students, teachers, and directors in the class.
 
@@ -81,19 +81,28 @@ class Classes:
             print(teacher.name)
 
         print("\nDirector:")
-        print(director1.name)
+        for director in school.directors:
+             print(director.name)
             
     @staticmethod
-    def teachers_and_students(school ,math_teacher, english_teacher, physics_teacher, director1, new_student1, new_student2):
+    def teachers_and_students(school, teachers, director, students):
         """
-        Add teachers and students (and Director) to the class.
+        Add teachers, director, and students to the class.
+
+        Parameters:
+            school (Classes): The school class object to which to add the teachers, director, and students.
+            teachers (list): A list of teacher objects to be added.
+            director (Director): The director object to be added.
+            students (list): A list of student objects to be added.
 
         """
-        school.add_teacher(math_teacher)
-        school.add_teacher(english_teacher)
-        school.add_teacher(physics_teacher)
-        school.add_director(director1)
-        school.add_student(new_student1)
-        school.add_student(new_student2)
+        for teacher in teachers:
+            school.add_teacher(teacher)
+        
+        school.add_director(director)
+        
+        for student in students:
+            school.add_student(student)
+
 
 # #############################
