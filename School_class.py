@@ -64,6 +64,7 @@ class School:
         self.director = None
         self.taught_disciplines = []
 
+
     def add_student(self, student):
         """
         Add a student to the school.
@@ -102,7 +103,15 @@ class School:
             director (Director): The director object to be added to the school's director list.
 
         """
-        self.director = director
+        if self.director is None:
+            if director.school is None:  # Check if the director is not associated with any school
+                self.director = director
+                director.school = self
+            else:
+                print(f"{director.name} is already the director of another school: {director.school.name}.")
+        else:
+            print(f"{self.name} already has a director: {self.director.name}.")
+
 
     def teach_discipline(self, discipline1, discipline2):
         """

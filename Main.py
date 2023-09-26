@@ -15,13 +15,28 @@ from Adress_class import Address
 class MainPreparationClass:
     def __init__(self):
         self.school = School("Europa Schule Köln")
+        self.school1 = School("Europa Sle Köln")
         self.math_teacher = Teacher("Lukas", "Lukas@school.com", Address.generate_random_address())
         self.english_teacher = Teacher("Nina", "Nina@school.com", Address.generate_random_address())
         self.physics_teacher = Teacher("Tommy", "Tommy@school.com", Address.generate_random_address())
         self.school_secretary = sec_class.Secretary("Jenny", "secretary@school.com", Address.generate_random_address())
         self.new_student1 = Student("Max", "max@example.com", Address.generate_random_address())
         self.new_student2 = Student("john", "max@example.com", Address.generate_random_address())
-        self.director1 = Director("Schmidt", "Schmidt@school.com", Address.generate_random_address(), self.school)
+        self.director1 = Director("Schmidt", "Schmidt@school.com", Address.generate_random_address())
+        self.director2 = Director("Schmidt", "Schmidt@school.com", Address.generate_random_address())
+       # self.director1 = Director("Schmidt", "Schmidt@school.com", Address.generate_random_address(), self.school1)
+
+
+        # if self.director1.school_name != self.school.name:
+        #     try:
+        #         self.director1.assign_school(self.school)
+        #     except ValueError as e:
+        #         print(e)
+
+
+       
+        self.school.add_director(self.director1)
+        self.school1.add_director(self.director1)
         self.exam_names_ = ["Mathematics_exam1", "Mathematics_exam2", "Mathematics_exam3", "english_exam1", "english_exam2", "Physics_exam1", "Physics_exam2", "Physics_exam3"]
 
         self.math_exam_list = Math("Mathematics")

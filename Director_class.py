@@ -1,16 +1,14 @@
 from info_class import Info
 
-
-
 class Director(Info):
     """
     A class for representing a school director.
 
     Attributes:
-        assigned_schools (dict): A dictionary to keep track of assigned school names and directors.
+        school_name (str): The name of the school to which the director is assigned.
 
     Methods:
-        __init__(self, name, email, address, school_name):
+        __init__(self, name, email, address, school_name=None):
             Initialize a Director object with name, email, address, and school assignment.
         
         teach_discipline(self, discipline1, discipline2, discipline3):
@@ -27,9 +25,10 @@ class Director(Info):
 
     """
 
-    assigned_schools = {}
+     
+  
 
-    def __init__(self, name, email, address, school_name):
+    def __init__(self, name, email, address,):
         """
         Initialize a Director object with name, email, address, and school assignment.
 
@@ -37,17 +36,18 @@ class Director(Info):
             name (str): The name of the director.
             email (str): The email address of the director.
             address (str): The address of the director.
-            school_name (str): The name of the school to which the director is assigned.
+            school_name (str, optional): The name of the school to which the director is initially assigned.
 
         """
         super().__init__(name, email, address)
-        if school_name in Director.assigned_schools:
-            raise ValueError(f"{school_name} already has a director.")
-        self.school_name = school_name
-        Director.assigned_schools[school_name] = self
-        self.school_assigned = False
         self.can_do_everything = True
         self.taught_disciplines = []
+        self.name = name
+        self.school = None 
+
+
+        # if school_name:
+        #     self.assign_school(school_name)
 
     def teach_discipline(self, discipline1, discipline2, discipline3):
         """
@@ -78,21 +78,25 @@ class Director(Info):
                 for discipline_name, question_text in exam.exam_questions:
                     if discipline.name == discipline_name:
                         print(question_text)
-                    print()
+                print()
 
-    def assign_school(self, school_name):
-        """
-        Assign the director to a school.
 
-        Para:
-            school_name (str): The name of the school to assign the director to.
+    # def assign_school(self, school_name=None):
+    #     """
+    #     Assign the director to a school.
 
-        """
-        if not self.school_assigned:
-            self.school_name = school_name
-            self.school_assigned = True
-        else:
-            print(f"{self.name} is already assigned to a school.")
+    #     Para:
+    #         school_name (str, optional): The name of the school to assign the director to.
+
+    #     """
+    #         if self.school_name and self.school_name != school_name:
+    #             raise ValueError(f"{self.name} is already assigned to {self.school_name}.")
+    #         elif school_name in Director.assigned_schools:
+    #             raise ValueError(f"{school_name} already has a director.")
+    #         else:
+    #             self.school_name = school_name
+    #             Director.assigned_schools[school_name] = self
+
 
     def get_full_info(self):
         """
@@ -103,8 +107,3 @@ class Director(Info):
 
          """
         return f"Name: {self.name}\nEmail: {self.email}\nAddress: {self.address}\nSchool: {self.school_name}"
-    
-
-
-    
-    
