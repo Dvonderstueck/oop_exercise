@@ -104,12 +104,12 @@ class School:
 
         """
         if self.director is None:
-            if director.school is None: 
+            if director.school is None:
                 self.director = director
                 director.school = self
             else:
-             raise ValueError(f"{director.name} is already the director of another school: {director.school.name}.")
-        else:
+                raise ValueError(f"{director.name} is already the director of another school: {director.school.name}.")
+        elif self.director != director:
             raise ValueError(f"{self.name} already has a director: {self.director.name}.")
 
 
@@ -146,7 +146,7 @@ class School:
             
     
     
-    def add_teachers_students_director(self, teachers, director, students):
+    def add_teachers_students_director(self, teachers, students):
         """
         Add teachers, director, and students to the school.
 
@@ -158,9 +158,7 @@ class School:
 
         """
         for teacher in teachers:
-            self.add_teacher(teacher)
-        
-        self.add_director(director)
+            self.add_teacher(teacher) 
         
         for student in students:
             self.add_student(student)

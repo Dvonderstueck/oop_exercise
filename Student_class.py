@@ -132,8 +132,14 @@ class Student(Info):
 
         new_points = self.student_grades.get(discipline, 0)
 
-        with open(file_path, 'w') as file:
-            file.write(f"Saved points for {discipline}: {new_points}\n")
+        try:
+            with open(file_path, 'w') as file:
+                file.write(f"Saved points for {discipline}: {new_points}\n")
+
+            print(f"Total points for {discipline} in {exam_name} have been updated and saved to {file_path}")
+        except FileNotFoundError:
+            print(f"File not found: {file_path}. The data could not be saved.")
+
 
         print(f"Total points for {discipline} in {exam_name} have been updated and saved to {file_path}")
 

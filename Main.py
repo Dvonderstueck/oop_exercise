@@ -25,22 +25,17 @@ class MainPreparationClass:
         self.new_student2 = Student("john", "max@example.com", Address.generate_random_address())
         self.director1 = Director("Schmidt", "Schmidt@school.com", Address.generate_random_address())
         self.director2 = Director("Schmt", "Schmidt@school.com", Address.generate_random_address())
-       # self.director1 = Director("Schmidt", "Schmidt@school.com", Address.generate_random_address(), self.school1)
+
 
         logging.basicConfig(filename='error.log', level=logging.ERROR)
         try:
             self.school.add_director(self.director1)
-            self.school.add_director(self.director2)
+            self.school.add_director(self.director1)
         except ValueError as e:
             print(e)
             logging.error(e)
-        except Exception as e:
-            print(f"An unexpected error occurred: {e}")
-            logging.error(f"An unexpected error occurred: {e}")
 
        
-        self.school.add_director(self.director1)
-        self.school1.add_director(self.director1)
         self.exam_names_ = ["Mathematics_exam1", "Mathematics_exam2", "Mathematics_exam3", "english_exam1", "english_exam2", "Physics_exam1", "Physics_exam2", "Physics_exam3"]
 
         self.math_exam_list = Math("Mathematics")
@@ -54,11 +49,12 @@ class MainPreparationClass:
     def run(self):
         choice = input("What action would you like to perform?\n 1: Print students,teachers and the director of the school,\n 2: Print classes,\n 3: exam questions,\n 4: Run exam,\n 5: exam points student 1,\n 6: exam points student 2,\n 7: List of teachers with their disciplines,\n 8: Director permission,\n 9: Student1 full info,\n 10: Run exam where secretary gets the grade for students,\n 11: Exit: ")
 
+
         match choice:
             case "1":
                 teachers = [self.math_teacher, self.english_teacher, self.physics_teacher]
                 students = [self.new_student1, self.new_student2]
-                self.school.add_teachers_students_director(teachers, self.director1, students)
+                self.school.add_teachers_students_director(teachers, students)
                 self.school.print_students_teachers_and_director()
             
             case "2":
@@ -112,5 +108,11 @@ class MainPreparationClass:
                 return
 
 if __name__ == "__main__":
-    main = MainPreparationClass()
-    main.run()
+    logging.basicConfig(filename='error.log', level=logging.ERROR)
+    
+    try:
+        main = MainPreparationClass()
+        main.run()
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+        logging.error(f"An unexpected error occurred: {e}")
