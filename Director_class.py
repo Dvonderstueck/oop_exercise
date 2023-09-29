@@ -46,8 +46,6 @@ class Director(Info):
         self.school = None 
 
 
-        # if school_name:
-        #     self.assign_school(school_name)
 
     def teach_discipline(self, discipline1, discipline2, discipline3):
         """
@@ -80,22 +78,6 @@ class Director(Info):
                         print(question_text)
                 print()
 
-
-    # def assign_school(self, school_name=None):
-    #     """
-    #     Assign the director to a school.
-
-    #     Para:
-    #         school_name (str, optional): The name of the school to assign the director to.
-
-    #     """
-    #         if self.school_name and self.school_name != school_name:
-    #             raise ValueError(f"{self.name} is already assigned to {self.school_name}.")
-    #         elif school_name in Director.assigned_schools:
-    #             raise ValueError(f"{school_name} already has a director.")
-    #         else:
-    #             self.school_name = school_name
-    #             Director.assigned_schools[school_name] = self
 
 
     def get_full_info(self):

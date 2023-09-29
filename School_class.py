@@ -104,7 +104,7 @@ class School:
 
         """
         if self.director is None:
-            if director.school is None:  # Check if the director is not associated with any school
+            if director.school is None: 
                 self.director = director
                 director.school = self
             else:

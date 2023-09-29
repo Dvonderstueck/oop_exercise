@@ -23,7 +23,7 @@ class MainPreparationClass:
         self.new_student1 = Student("Max", "max@example.com", Address.generate_random_address())
         self.new_student2 = Student("john", "max@example.com", Address.generate_random_address())
         self.director1 = Director("Schmidt", "Schmidt@school.com", Address.generate_random_address())
-        self.director2 = Director("Schmidt", "Schmidt@school.com", Address.generate_random_address())
+        self.director2 = Director("Schmt", "Schmidt@school.com", Address.generate_random_address())
        # self.director1 = Director("Schmidt", "Schmidt@school.com", Address.generate_random_address(), self.school1)
 
 
