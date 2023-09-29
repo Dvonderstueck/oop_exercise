@@ -11,6 +11,7 @@ from English_class import English
 from Physics_class import Physics
 import Parent_read_points
 from Adress_class import Address
+import logging
 
 class MainPreparationClass:
     def __init__(self):
@@ -26,13 +27,16 @@ class MainPreparationClass:
         self.director2 = Director("Schmt", "Schmidt@school.com", Address.generate_random_address())
        # self.director1 = Director("Schmidt", "Schmidt@school.com", Address.generate_random_address(), self.school1)
 
-
-        # if self.director1.school_name != self.school.name:
-        #     try:
-        #         self.director1.assign_school(self.school)
-        #     except ValueError as e:
-        #         print(e)
-
+        logging.basicConfig(filename='error.log', level=logging.ERROR)
+        try:
+            self.school.add_director(self.director1)
+            self.school.add_director(self.director2)
+        except ValueError as e:
+            print(e)
+            logging.error(e)
+        except Exception as e:
+            print(f"An unexpected error occurred: {e}")
+            logging.error(f"An unexpected error occurred: {e}")
 
        
         self.school.add_director(self.director1)

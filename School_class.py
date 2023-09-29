@@ -108,9 +108,9 @@ class School:
                 self.director = director
                 director.school = self
             else:
-                print(f"{director.name} is already the director of another school: {director.school.name}.")
+             raise ValueError(f"{director.name} is already the director of another school: {director.school.name}.")
         else:
-            print(f"{self.name} already has a director: {self.director.name}.")
+            raise ValueError(f"{self.name} already has a director: {self.director.name}.")
 
 
     def teach_discipline(self, discipline1, discipline2):
