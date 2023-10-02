@@ -30,7 +30,7 @@ class MainPreparationClass:
         logging.basicConfig(filename='error.log', level=logging.ERROR)
         try:
             self.school.add_director(self.director1)
-            self.school.add_director(self.director1)
+            #self.school.add_director(self.director1)
         except ValueError as e:
             print(e)
             logging.error(e)
