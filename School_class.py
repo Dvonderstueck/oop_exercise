@@ -3,6 +3,10 @@ from classes_class import Classes
 from Discipline_class import Discipline
 from Teacher_class import Teacher
 from Director_class import Director
+import logging
+from Adress_class import Address
+
+
 
 class School:
     """
@@ -24,6 +28,8 @@ class School:
         add_teachers_students_director(self, teachers, students): Add teachers, director, and students to the school.
     """
 
+   
+
     def __init__(self, name):
         """
         Initialize a School object.
@@ -36,6 +42,10 @@ class School:
         self.teachers = []
         self.director = None
         self.taught_disciplines = set()
+
+
+
+
 
     def add_student(self, student):
         """
@@ -77,6 +87,15 @@ class School:
             director.school = self
         elif self.director != director:
             raise ValueError(f"{self.name} already has a director: {self.director.name}")
+        
+        # logging.basicConfig(filename='error.log', level=logging.ERROR)
+        # try:
+        #     self.school.add_director(School.director1)
+        #     self.school.add_director(School.director2)
+        # except ValueError as e:
+        #     print(e)
+        #     logging.error(e)
+        
 
     def teach_discipline(self, discipline1, discipline2):
         """
@@ -110,3 +129,20 @@ class School:
             self.add_teacher(teacher)
         for student in students:
             self.add_student(student)
+
+    def remove_director(self, director):
+        """
+        Remove a director from the school.
+
+        Para:
+            director (Director): The director object to be removed from the school.
+        """
+        if self.director == director:
+            self.director = None
+            director.school = None
+        else:
+            raise ValueError(f"{self.name} does not have the specified director: {director.name}")
+
+
+
+
