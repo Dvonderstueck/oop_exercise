@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from info_class import Person
+from Person_class import Person
 
 class Parent(Person):
     """

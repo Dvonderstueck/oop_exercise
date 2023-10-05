@@ -1,4 +1,4 @@
-from info_class import Person
+from Person_class import Person
 
 
 class Secretary(Person):

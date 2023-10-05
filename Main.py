@@ -13,14 +13,14 @@ import Parent_read_points
 from Adress_class import Address
 import logging
 import ErrorHandling
-from info_class import Person
+from Person_class import Person
 
 class MainPreparationClass:
     def __init__(self):
         self.school = School("Europa Schule Köln")
         self.school1 = School("Europa Sle Köln")
         self.math_teacher = Teacher("Lukas", "Lukas@school.com", Address.generate_random_address())
-        self.math_teacher.set_specific_attributes("New Name", "newemail@school.com", "456 Elm St")
+        #self.math_teacher.set_specific_attributes("New Name", "newemail@school.com", "456 Elm St")
         self.english_teacher = Teacher("Nina", "Nina@school.com", Address.generate_random_address())
         self.physics_teacher = Teacher("Tommy", "Tommy@school.com", Address.generate_random_address())
         self.school_secretary = sec_class.Secretary("Jenny", "secretary@school.com", Address.generate_random_address())
@@ -28,14 +28,25 @@ class MainPreparationClass:
         self.new_student2 = Student("john", "max@example.com", Address.generate_random_address())
         self.director1 = Director("Schmidt", "Schmidt@school.com", Address.generate_random_address())
         self.director2 = Director("Schmt", "Schmidt@school.com", Address.generate_random_address())
+
+        self.school.add_secretary(self.school_secretary)
+        self.school.add_person(self.math_teacher, 'teacher')
+        self.school.add_person(self.english_teacher, 'teacher')
+        self.school.add_person(self.physics_teacher, 'teacher')
+        self.school.add_person(self.school_secretary, 'secretary')
+        self.school.add_person(self.new_student1, 'student')
+        self.school.add_person(self.new_student2, 'student')
+        #self.school.add_person(self.director1, 'director')
+       # self.school.add_person(self.director2, 'director')
         
         
 
         logging.basicConfig(filename='error.log', level=logging.ERROR)
         try:
-             self.school.add_director(self.director1)
-             self.school.remove_director(self.director1)
-             self.school.add_director(self.director2)
+            self.school.add_person(self.director1, 'director')
+             #self.school.add_director(self.director1)
+            # self.school.remove_director(self.director1)
+           
         except ValueError as e:
             print(e)
             logging.error(e)
@@ -58,9 +69,6 @@ class MainPreparationClass:
 
         match choice:
             case "1":
-                teachers = [self.math_teacher, self.english_teacher, self.physics_teacher]
-                students = [self.new_student1, self.new_student2]
-                self.school.add_teachers_students_director(teachers, students)
                 self.school.print_students_teachers_and_director()
             
             case "2":
@@ -102,7 +110,7 @@ class MainPreparationClass:
                     self.director1.exam_quest_list_teacher(self.math_exam_list, self.english_exam_list, self.physics_exam_list)
                 
             case "9":
-                print(self.math_teacher.get_full_info())
+                print(self.new_student1.get_full_info())
 
             case "10":
                 self.new_student2 = Exam_class.exams_for_student(self.new_student2)

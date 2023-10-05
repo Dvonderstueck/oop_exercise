@@ -32,7 +32,7 @@ class Person:
         if isinstance(self, Person):
             self.name = name
             self.email = email
-            self.address = address
+            self.address = address 
 
 
     def get_full_info(self):

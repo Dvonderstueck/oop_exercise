@@ -1,4 +1,4 @@
-from info_class import Person
+from Person_class import Person
 import Parent_read_points
 
 class Student(Person):

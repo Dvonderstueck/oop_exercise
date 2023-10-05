@@ -3,6 +3,7 @@ from classes_class import Classes
 from Discipline_class import Discipline
 from Teacher_class import Teacher
 from Director_class import Director
+from sec_class import Secretary
 import logging
 from Adress_class import Address
 
@@ -40,8 +41,29 @@ class School:
         self.name = name
         self.students = []
         self.teachers = []
+        self.secretary = None
         self.director = None
         self.taught_disciplines = set()
+
+    
+    def add_person(self, person, role):
+        """
+        Add a person to the school based on their role.
+
+        Parameters:
+            person: The person object to be added to the school.
+            role (str): The role of the person ('student', 'teacher', 'director', 'secretary').
+        """
+        if role == 'student':
+            self.add_student(person)
+        elif role == 'teacher':
+            self.add_teacher(person)
+        elif role == 'director':
+            self.add_director(person)
+        elif role == 'secretary':
+            self.add_secretary(person)
+        else:
+            raise ValueError(f"Invalid role: {role}")
 
 
 
@@ -54,7 +76,8 @@ class School:
         Parameters:
             student (Student): The student object to be added to the school's student list.
         """
-        self.students.append(student)
+        if isinstance(student, Student):
+            self.students.append(student)
 
     def __str__(self):
         """
@@ -72,8 +95,16 @@ class School:
         Parameters:
             teacher (Teacher): The teacher object to be added to the school's teacher list.
         """
-        if teacher not in self.teachers:
+        if isinstance(teacher, Teacher):
             self.teachers.append(teacher)
+
+    def add_secretary(self, secretary ):
+
+        if isinstance(secretary, Secretary):
+            if self.secretary is None:
+                self.secretary = secretary
+
+
 
     def add_director(self, director):
         """
@@ -82,11 +113,12 @@ class School:
         Parameters:
             director (Director): The director object to be added to the school's director list.
         """
-        if self.director is None:
-            self.director = director
-            director.school = self
-        elif self.director != director:
-            raise ValueError(f"{self.name} already has a director: {self.director.name}")
+        if isinstance(director, Director):
+            if self.director is None:
+                self.director = director
+                director.school = self
+            else:
+                raise ValueError(f"{self.name} already has a director: {self.director.name}")
         
         
 
@@ -109,6 +141,9 @@ class School:
         print("List of Teachers:", ", ".join(teacher.name for teacher in self.teachers))
         if self.director:
             print("Director:", self.director.name)
+        if self.secretary:
+            print("Secretary:", self.secretary.name)
+
 
     def add_teachers_students_director(self, teachers, students):
         """
