@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
-from info_class import Info
+from info_class import Person
 
-class Parent(Info):
+class Parent(Person):
     """
     A class of a Parent from a Student
 

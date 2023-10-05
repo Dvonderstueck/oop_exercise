@@ -88,13 +88,6 @@ class School:
         elif self.director != director:
             raise ValueError(f"{self.name} already has a director: {self.director.name}")
         
-        # logging.basicConfig(filename='error.log', level=logging.ERROR)
-        # try:
-        #     self.school.add_director(School.director1)
-        #     self.school.add_director(School.director2)
-        # except ValueError as e:
-        #     print(e)
-        #     logging.error(e)
         
 
     def teach_discipline(self, discipline1, discipline2):

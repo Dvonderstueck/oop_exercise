@@ -1,7 +1,7 @@
-from info_class import Info
+from info_class import Person
 import Parent_read_points
 
-class Student(Info):
+class Student(Person):
     """
     A class representing a student in a school.
 

@@ -1,6 +1,6 @@
-from info_class import Info
+from info_class import Person
 
-class Director(Info):
+class Director(Person):
     """
     A class for representing a school director.
 

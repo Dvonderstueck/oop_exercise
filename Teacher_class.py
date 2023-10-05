@@ -1,4 +1,4 @@
-from info_class import Info
+from info_class import Person
 from Math_class import Math
 from English_class import English
 from Physics_class import Physics
@@ -10,7 +10,7 @@ english_exam_list = English("English")
 physics_exam_list = Physics("Physics")
 
 
-class Teacher(Info):
+class Teacher(Person):
     """
     A class of a Teacher of a school
 

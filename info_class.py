@@ -1,7 +1,5 @@
 
-
-
-class Info:
+class Person:
     """
     A class for representing basic information about a person.
 
@@ -29,6 +27,14 @@ class Info:
          self.email = email
          self.address = address
 
+
+    def set_specific_attributes(self, name, email, address):
+        if isinstance(self, Person):
+            self.name = name
+            self.email = email
+            self.address = address
+
+
     def get_full_info(self):
          """
         Get a string representation of the person's full information.
@@ -38,6 +44,7 @@ class Info:
 
         """
          return f"Name: {self.name}\nEmail: {self.email}\nAddress: {self.address}"
+    
 
 
 
