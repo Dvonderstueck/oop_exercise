@@ -29,21 +29,22 @@ class MainPreparationClass:
         self.director1 = Director("Schmidt", "Schmidt@school.com", Address.generate_random_address())
         self.director2 = Director("Schmt", "Schmidt@school.com", Address.generate_random_address())
 
-        self.school.add_secretary(self.school_secretary)
-        self.school.add_person(self.math_teacher, 'teacher')
-        self.school.add_person(self.english_teacher, 'teacher')
-        self.school.add_person(self.physics_teacher, 'teacher')
-        self.school.add_person(self.school_secretary, 'secretary')
-        self.school.add_person(self.new_student1, 'student')
-        self.school.add_person(self.new_student2, 'student')
-        #self.school.add_person(self.director1, 'director')
-       # self.school.add_person(self.director2, 'director')
+        self.school.add_person(self.math_teacher)
+        self.school.add_person(self.english_teacher)
+        self.school.add_person(self.physics_teacher)
+        self.school.add_person(self.school_secretary)
+        self.school.add_person(self.new_student1)
+        self.school.add_person(self.new_student2,)
+        #self.school.add_person(self.school)
+        #self.school.add_person(self.director1)
+       # self.school.add_person(self.director2)
+
         
         
 
         logging.basicConfig(filename='error.log', level=logging.ERROR)
         try:
-            self.school.add_person(self.director1, 'director')
+            self.school.add_person(self.director1)
              #self.school.add_director(self.director1)
             # self.school.remove_director(self.director1)
            

@@ -46,30 +46,27 @@ class School:
         self.taught_disciplines = set()
 
     
-    def add_person(self, person, role):
+    def add_person(self, person):
         """
-        Add a person to the school based on their role.
+        Add a person to the school based on their class type.
 
         Parameters:
             person: The person object to be added to the school.
-            role (str): The role of the person ('student', 'teacher', 'director', 'secretary').
         """
-        if role == 'student':
-            self.add_student(person)
-        elif role == 'teacher':
-            self.add_teacher(person)
-        elif role == 'director':
-            self.add_director(person)
-        elif role == 'secretary':
-            self.add_secretary(person)
-        else:
-            raise ValueError(f"Invalid role: {role}")
+        match person:
+            case Student():
+                self.__add_student(person)
+            case Teacher():
+                self.__add_teacher(person)
+            case Director():
+                self.__add_director(person)
+            case Secretary():
+                self.__add_secretary(person)
+            case _:
+                raise ValueError("Invalid person object. Expected Student, Teacher, Director, or Secretary.")
 
 
-
-
-
-    def add_student(self, student):
+    def __add_student(self, student):
         """
         Add a student to the school.
 
@@ -88,7 +85,7 @@ class School:
         """
         return self.name
 
-    def add_teacher(self, teacher):
+    def __add_teacher(self, teacher):
         """
         Add a teacher to the school if not already present.
 
@@ -98,7 +95,7 @@ class School:
         if isinstance(teacher, Teacher):
             self.teachers.append(teacher)
 
-    def add_secretary(self, secretary ):
+    def __add_secretary(self, secretary ):
 
         if isinstance(secretary, Secretary):
             if self.secretary is None:
@@ -106,7 +103,7 @@ class School:
 
 
 
-    def add_director(self, director):
+    def __add_director(self, director):
         """
         Add a director to the school.
 
