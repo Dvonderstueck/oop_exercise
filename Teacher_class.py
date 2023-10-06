@@ -1,4 +1,4 @@
-from info_class import Info
+from Person_class import Person
 from Math_class import Math
 from English_class import English
 from Physics_class import Physics
@@ -10,7 +10,7 @@ english_exam_list = English("English")
 physics_exam_list = Physics("Physics")
 
 
-class Teacher(Info):
+class Teacher(Person):
     """
     A class of a Teacher of a school
 
@@ -86,14 +86,3 @@ class Teacher(Info):
             print(discipline.name)
 
 
-math_teacher = Teacher("Lukas", "Lukas@school.com", Address.generate_random_address())
-english_teacher = Teacher("Nina", "Nina@school.com", Address.generate_random_address())
-physics_teacher = Teacher("Tommy", "Tommy@school.com", Address.generate_random_address())
-
-
-math_teacher.teach_discipline(math_exam_list, physics_exam_list)
-english_teacher.teach_discipline(english_exam_list, math_exam_list)
-physics_teacher.teach_discipline(physics_exam_list, physics_exam_list)
-
-
-print()

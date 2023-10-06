@@ -1,7 +1,7 @@
-from info_class import Info
+from Person_class import Person
 
 
-class Secretary(Info):
+class Secretary(Person):
     """
     A class to represent a secretary of a school
 
