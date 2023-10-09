@@ -18,7 +18,7 @@ from Person_class import Person
 class MainPreparationClass:
     def __init__(self):
         self.school = School("Europa Schule Köln")
-        self.school1 = School("Europa Sle Köln")
+        self.school1 = School("Europa Sledasd Köln")
         self.math_teacher = Teacher("Lukas", "Lukas@school.com", Address.generate_random_address())
         #self.math_teacher.set_specific_attributes("New Name", "newemail@school.com", "456 Elm St")
         self.english_teacher = Teacher("Nina", "Nina@school.com", Address.generate_random_address())
@@ -60,9 +60,9 @@ class MainPreparationClass:
         self.english_exam_list = English("English")
         self.physics_exam_list = Physics("Physics")
 
-        self.math_teacher.teach_discipline(self.math_exam_list, self.physics_exam_list)
-        self.english_teacher.teach_discipline(self.english_exam_list, self.math_exam_list)
-        self.physics_teacher.teach_discipline(self.physics_exam_list, self.physics_exam_list)
+        self.math_teacher.teach_disciplines(self.math_exam_list, self.physics_exam_list)
+        self.english_teacher.teach_disciplines(self.english_exam_list, self.math_exam_list)
+        self.physics_teacher.teach_disciplines(self.physics_exam_list)
      
     def run(self):
         choice = input("What action would you like to perform?\n 1: Print students,teachers and the director of the school,\n 2: Print classes,\n 3: exam questions,\n 4: Run exam,\n 5: exam points student 1,\n 6: exam points student 2,\n 7: List of teachers with their disciplines,\n 8: Director permission,\n 9: Student1 full info,\n 10: Run exam where secretary gets the grade for students,\n 11: Exit: ")

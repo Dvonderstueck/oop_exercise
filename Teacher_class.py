@@ -48,16 +48,15 @@ class Teacher(Person):
         super().__init__(name, email, address)
         self.taught_disciplines = []
 
-    def teach_discipline(self, discipline1, discipline2):
-        """
-        Assign two disciplines to be taught by the teacher.
+    def teach_disciplines(self, *disciplines):
+     """
+    Assign one or more disciplines to be taught by the teacher.
 
-        Para:
-            discipline1 (object): The first discipline to be taught.
-            discipline2 (object): The second discipline to be taught.
+    Args:
+        *disciplines: Variable number of discipline objects to be taught.
 
-        """
-        self.taught_disciplines.extend([discipline1, discipline2])
+    """
+     self.taught_disciplines.extend(disciplines)
 
     def exam_quest_list_teacher(self, disciplines):
         """
