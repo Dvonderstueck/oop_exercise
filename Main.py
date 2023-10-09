@@ -18,7 +18,7 @@ from Person_class import Person
 class MainPreparationClass:
     def __init__(self):
         self.school = School("Europa Schule Köln")
-        self.school1 = School("Europa Sle Köln")
+        self.school1 = School("Europa Sledasd Köln")
         self.math_teacher = Teacher("Lukas", "Lukas@school.com", Address.generate_random_address())
         #self.math_teacher.set_specific_attributes("New Name", "newemail@school.com", "456 Elm St")
         self.english_teacher = Teacher("Nina", "Nina@school.com", Address.generate_random_address())
